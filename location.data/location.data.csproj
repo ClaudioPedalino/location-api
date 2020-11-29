@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="EntitiesConfiguration\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
 
