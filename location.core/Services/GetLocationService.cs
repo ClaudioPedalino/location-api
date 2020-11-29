@@ -3,6 +3,7 @@ using location.core.Common.Extensions;
 using location.core.Services.Interfaces;
 using location.entities;
 using Newtonsoft.Json;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,12 @@ namespace location.core.Services
     {
 
         private readonly IHttpClientFactory _httpFactory;
+        private readonly ILogger _logger;
 
-        public GetLocationService(IHttpClientFactory httpFactory)
+        public GetLocationService(IHttpClientFactory httpFactory, ILogger logger)
         {
-            _httpFactory = httpFactory;
+            _httpFactory = httpFactory ?? throw new ArgumentNullException(nameof(httpFactory));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public List<Provincia> FilterProvinceRequestedByName_Strict(string request, List<Provincia> content)
@@ -63,7 +66,7 @@ namespace location.core.Services
 
             if (!response.IsSuccessStatusCode && !response.StatusCode.Equals(HttpStatusCode.OK))
             {
-                Console.WriteLine($"Error al llamar al servicio {client.BaseAddress}{Routes.LocationClient_GetAllProvinces}");
+                _logger.Error($"Error al llamar al servicio {client.BaseAddress}{Routes.LocationClient_GetAllProvinces}");
                 return false;
             }
             return true;

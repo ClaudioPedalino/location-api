@@ -30,7 +30,7 @@ namespace location.core.Handlers
         {
             HttpClient client = _httpFactory.CreateClient("LocationServiceUrl");
 
-            Data content = await GetAllProvincesFromService(client);
+            Data content = await GetAllProvincesFromService(client, _logger);
 
             if (content == null || content.Total == 0)
             {
@@ -47,10 +47,10 @@ namespace location.core.Handlers
         }
 
 
-        private async Task<Data> GetAllProvincesFromService(HttpClient client)
+        private async Task<Data> GetAllProvincesFromService(HttpClient client, ILogger _logger)
         {
             HttpResponseMessage response = await client.GetAsync(client.BaseAddress + Routes.LocationClient_GetAllProvinces);
-            var valid = ValidateResponse(client, response);
+            var valid = ValidateResponse(client, response, _logger);
             if (!valid)
             {
                 return null;
@@ -66,13 +66,13 @@ namespace location.core.Handlers
             return JsonConvert.DeserializeObject<T>(responseBody);
         }
 
-        private static bool ValidateResponse(HttpClient client, HttpResponseMessage response)
+        private static bool ValidateResponse(HttpClient client, HttpResponseMessage response, ILogger _logger)
         {
             response.EnsureSuccessStatusCode();
 
             if (!response.IsSuccessStatusCode && !response.StatusCode.Equals(HttpStatusCode.OK))
             {
-                Console.WriteLine($"Error al llamar al servicio {client.BaseAddress}{Routes.LocationClient_GetAllProvinces}");
+                _logger.Error($"Error al llamar al servicio {client.BaseAddress}{Routes.LocationClient_GetAllProvinces}");
                 return false;
             }
             return true;
