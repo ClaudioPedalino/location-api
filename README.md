@@ -33,7 +33,9 @@ Esta configurado para poder utilizar swagger con los endpoints disponibles, y ta
 A la hora de buscar por nombre de la provincia existen 3 modos de búsqueda:
 
 **Estricta**: Deberá coincidir la palabra completa, coincidiendo mayúsculas y mínusculas, también deberán coincidir las vocales acentuadas.
+
 **Flexible**: Deberá coincidir la palabra completa si, pero ahora no serán tenidas en cuenta mayúsculas y mínusculas y será indistinto las vocales acentuadas.
+
 **Like**: Es la modalidad más flexible, ignora mayúsculas, mínusculas y acentos y devuelve una lista de provincias que contengan ese segmento buscado en su nombre. Ej: "san" nos retornara "San Luis", "San Juan", "Santa Cruz", etc..
 
 Para indicar qué tipo de búsqueda se quiere realizar deberá indicarse con 'True' en el `appsettings.json` en la siguiente sección:

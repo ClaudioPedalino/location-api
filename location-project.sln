@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "location.api", "location.api\location.api.csproj", "{E460EBCA-2599-4BA6-B487-DB4BC98762A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "location.api", "location.api\location.api.csproj", "{E460EBCA-2599-4BA6-B487-DB4BC98762A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "location.entities", "location.entities\location.entities.csproj", "{2EBE3102-7B46-4DEB-BDCC-8FEEB5107D52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "location.entities", "location.entities\location.entities.csproj", "{2EBE3102-7B46-4DEB-BDCC-8FEEB5107D52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "location.data", "location.data\location.data.csproj", "{4757DC16-BE5D-4343-87D0-560EEF36F591}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "location.data", "location.data\location.data.csproj", "{4757DC16-BE5D-4343-87D0-560EEF36F591}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "location.core", "location.core\location.core.csproj", "{420193F0-3155-477D-94D7-91D4128272A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "location.core", "location.core\location.core.csproj", "{420193F0-3155-477D-94D7-91D4128272A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "location.test", "location.test\location.test.csproj", "{CF7EB68F-545C-4448-8679-1021EDE8575A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{420193F0-3155-477D-94D7-91D4128272A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{420193F0-3155-477D-94D7-91D4128272A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{420193F0-3155-477D-94D7-91D4128272A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF7EB68F-545C-4448-8679-1021EDE8575A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF7EB68F-545C-4448-8679-1021EDE8575A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF7EB68F-545C-4448-8679-1021EDE8575A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF7EB68F-545C-4448-8679-1021EDE8575A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
