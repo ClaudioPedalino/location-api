@@ -27,9 +27,11 @@ Exporté 2 archivos de postman, deberán importar ambos. Uno contiene la collect
 
 #### SWAGGER
 Esta configurado para poder utilizar swagger con los endpoints disponibles, y también la autenticación para lograrlo en los endpoints que lo requieran.
+- - -
 
 #### BUSQUEDA
 A la hora de buscar por nombre de la provincia existen 3 modos de búsqueda:
+
 **Estricta**: Deberá coincidir la palabra completa, coincidiendo mayúsculas y mínusculas, también deberán coincidir las vocales acentuadas.
 **Flexible**: Deberá coincidir la palabra completa si, pero ahora no serán tenidas en cuenta mayúsculas y mínusculas y será indistinto las vocales acentuadas.
 **Like**: Es la modalidad más flexible, ignora mayúsculas, mínusculas y acentos y devuelve una lista de provincias que contengan ese segmento buscado en su nombre. Ej: "san" nos retornara "San Luis", "San Juan", "Santa Cruz", etc..
@@ -43,6 +45,7 @@ Para indicar qué tipo de búsqueda se quiere realizar deberá indicarse con 'Tr
   },
 ```
 Por defecto vendrá configurado el modo flexible
+- - -
 
 #### DOCKER
 Configuré también la utilización de docker, existen 2 maneras para que puedan utilizarlo, en local, o en nube, recomiendo fuertemente la manera local
