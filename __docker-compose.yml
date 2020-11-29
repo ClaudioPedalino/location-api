@@ -1,0 +1,49 @@
+version: '3.5'
+
+volumes:
+    pgsql:
+
+networks:
+    location-net:
+        driver: bridge
+
+services:
+  location.api:
+    container_name: location-api
+    image: location-api
+    depends_on: 
+        - pgsql
+        - seq
+    networks:
+        - location-net
+    build:
+      context: .
+      dockerfile: location.api/Dockerfile
+    ports:
+      - "44338:80"
+  pgsql:
+    image: postgres:12
+    container_name: pgsql
+    environment:
+        POSTGRES_PASSWORD: Temporal1
+    volumes:
+        - pgsql:/var/lib/pgsql/data
+    networks:
+        - location-net
+    ports:
+        - '5432:5432'
+    environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: "Temporal1"
+        POSTGRES_DB: postgres
+  seq:
+    container_name: seq
+    image: datalust/seq:latest
+    volumes:
+      - /datadrive:/data
+    environment:
+      - ACCEPT_EULA=Y
+    networks:
+      - location-net
+    ports:
+        - '8081:80'

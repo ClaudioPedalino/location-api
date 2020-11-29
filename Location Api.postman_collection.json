@@ -1,0 +1,818 @@
+{
+	"info": {
+		"_postman_id": "e0b8d864-9f21-454c-870f-6226d5363f2d",
+		"name": "Location Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "v1/identity",
+					"item": [
+						{
+							"name": "/api/v1/identity/login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"lucaprodan@gmail.com\",\n    \"password\": \"Temporal1#\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{api}}/identity/login",
+									"host": [
+										"{{api}}"
+									],
+									"path": [
+										"identity",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"<string>\",\n    \"password\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/identity/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"identity",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/api/v1/identity/register",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"lucaprodan@gmail.com\",\n    \"password\": \"Temporal1#\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{api}}/identity/register",
+									"host": [
+										"{{api}}"
+									],
+									"path": [
+										"identity",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"<string>\",\n    \"password\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/identity/register",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"identity",
+												"register"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Location",
+					"item": [
+						{
+							"name": "/api/Location/get-all",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{api}}/Location/get-all",
+									"host": [
+										"{{api}}"
+									],
+									"path": [
+										"Location",
+										"get-all"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "/api/Location/get-all",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{auth}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{api}}/Location/get-all",
+											"host": [
+												"{{api}}"
+											],
+											"path": [
+												"Location",
+												"get-all"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Length",
+											"value": "2033"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Server",
+											"value": "Microsoft-IIS/10.0"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "ASP.NET"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 28 Nov 2020 23:07:06 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"province\": \"Buenos Aires\",\n        \"latitude\": -36.67694,\n        \"longitude\": -60.55883,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Catamarca\",\n        \"latitude\": -27.335833,\n        \"longitude\": -66.947685,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Chaco\",\n        \"latitude\": -26.38643,\n        \"longitude\": -60.76583,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Chubut\",\n        \"latitude\": -43.788624,\n        \"longitude\": -68.52676,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Ciudad Autónoma de Buenos Aires\",\n        \"latitude\": -34.614494,\n        \"longitude\": -58.445858,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Córdoba\",\n        \"latitude\": -32.142933,\n        \"longitude\": -63.801754,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Corrientes\",\n        \"latitude\": -28.774305,\n        \"longitude\": -57.80122,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Entre Ríos\",\n        \"latitude\": -32.058872,\n        \"longitude\": -59.201447,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Formosa\",\n        \"latitude\": -24.894972,\n        \"longitude\": -59.93244,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Jujuy\",\n        \"latitude\": -23.320078,\n        \"longitude\": -65.76425,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"La Pampa\",\n        \"latitude\": -37.131554,\n        \"longitude\": -65.446655,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"La Rioja\",\n        \"latitude\": -29.685776,\n        \"longitude\": -67.18173,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Mendoza\",\n        \"latitude\": -34.629887,\n        \"longitude\": -68.58312,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Misiones\",\n        \"latitude\": -26.875397,\n        \"longitude\": -54.651695,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Neuquén\",\n        \"latitude\": -38.641758,\n        \"longitude\": -70.11857,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Río Negro\",\n        \"latitude\": -40.405796,\n        \"longitude\": -67.22933,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Salta\",\n        \"latitude\": -24.299135,\n        \"longitude\": -64.81446,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"San Juan\",\n        \"latitude\": -30.865368,\n        \"longitude\": -68.88949,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"San Luis\",\n        \"latitude\": -33.757725,\n        \"longitude\": -66.02813,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Santa Cruz\",\n        \"latitude\": -48.815487,\n        \"longitude\": -69.955765,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Santa Fe\",\n        \"latitude\": -30.706926,\n        \"longitude\": -60.949837,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Santiago del Estero\",\n        \"latitude\": -27.782412,\n        \"longitude\": -63.252388,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Tierra del Fuego, Antártida e Islas del Atlántico Sur\",\n        \"latitude\": -82.521515,\n        \"longitude\": -50.74275,\n        \"warning\": \"\"\n    },\n    {\n        \"province\": \"Tucumán\",\n        \"latitude\": -26.9478,\n        \"longitude\": -65.36476,\n        \"warning\": \"\"\n    }\n]"
+								},
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Location/get-all",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Location",
+												"get-all"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"locationId\": \"urn:uuid:a8c4ba7b-cfe2-9d83-3b8e-e976e8f6486c\",\n \"locationName\": \"dolore ea ad Ut reprehenderit\",\n \"latitude\": -52373855,\n \"longitude\": -90398772\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/Location/get-coordinates-by-name",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{api}}/Location/get-coordinates-by-name?ProvinceName=Mendoza",
+									"host": [
+										"{{api}}"
+									],
+									"path": [
+										"Location",
+										"get-coordinates-by-name"
+									],
+									"query": [
+										{
+											"key": "ProvinceName",
+											"value": "Mendoza"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Location/get-coordinates-by-name",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Location",
+												"get-coordinates-by-name"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"locationId\": \"urn:uuid:a8c4ba7b-cfe2-9d83-3b8e-e976e8f6486c\",\n \"locationName\": \"dolore ea ad Ut reprehenderit\",\n \"latitude\": -52373855,\n \"longitude\": -90398772\n}"
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "data",
+			"item": [
+				{
+					"name": "case01",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7d538118-fe40-45bd-b90e-5c8ec502db38",
+								"exec": [
+									"var provinces = pm.environment.get('province');\r",
+									"\r",
+									"if(!provinces){\r",
+									"provinces = ['Buenos Aires', 'Córdoba', 'Catamarca'];\r",
+									"}\r",
+									"\r",
+									"var currentProvince = provinces.shift();\r",
+									"pm.environment.set('username', currentProvince);\r",
+									"pm.environment.set('provinces', provinces);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/Location/get-coordinates-by-name?ProvinceName=Buenos Aires",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"Location",
+								"get-coordinates-by-name"
+							],
+							"query": [
+								{
+									"key": "ProvinceName",
+									"value": "Buenos Aires"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case02",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/Location/get-coordinates-by-name?ProvinceName=buenos aires",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"Location",
+								"get-coordinates-by-name"
+							],
+							"query": [
+								{
+									"key": "ProvinceName",
+									"value": "buenos aires"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case03",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/Location/get-coordinates-by-name?ProvinceName=Ciudad Autónoma de Buenos Aires",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"Location",
+								"get-coordinates-by-name"
+							],
+							"query": [
+								{
+									"key": "ProvinceName",
+									"value": "Ciudad Autónoma de Buenos Aires"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case04",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/Location/get-coordinates-by-name?ProvinceName=ciudad autonoma de buenos aires",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"Location",
+								"get-coordinates-by-name"
+							],
+							"query": [
+								{
+									"key": "ProvinceName",
+									"value": "ciudad autonoma de buenos aires"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case05",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/Location/get-coordinates-by-name?ProvinceName=CABA",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"Location",
+								"get-coordinates-by-name"
+							],
+							"query": [
+								{
+									"key": "ProvinceName",
+									"value": "CABA"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case06",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/Location/get-coordinates-by-name?ProvinceName=Córdoba",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"Location",
+								"get-coordinates-by-name"
+							],
+							"query": [
+								{
+									"key": "ProvinceName",
+									"value": "Córdoba"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case07",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/Location/get-coordinates-by-name?ProvinceName=córdoba",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"Location",
+								"get-coordinates-by-name"
+							],
+							"query": [
+								{
+									"key": "ProvinceName",
+									"value": "córdoba"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case08",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/Location/get-coordinates-by-name?ProvinceName=cordoba",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"Location",
+								"get-coordinates-by-name"
+							],
+							"query": [
+								{
+									"key": "ProvinceName",
+									"value": "cordoba"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case09",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/Location/get-coordinates-by-name?ProvinceName=tierra del fuego",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"Location",
+								"get-coordinates-by-name"
+							],
+							"query": [
+								{
+									"key": "ProvinceName",
+									"value": "tierra del fuego"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case10",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/Location/get-coordinates-by-name?ProvinceName=Tierra del Fuego",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"Location",
+								"get-coordinates-by-name"
+							],
+							"query": [
+								{
+									"key": "ProvinceName",
+									"value": "Tierra del Fuego"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case11",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "{{auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/Location/get-coordinates-by-name?ProvinceName=Tierra del Fuego, Antártida e Islas del Atlántico Sur",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"Location",
+								"get-coordinates-by-name"
+							],
+							"query": [
+								{
+									"key": "ProvinceName",
+									"value": "Tierra del Fuego, Antártida e Islas del Atlántico Sur"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "case12",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{auth}}",
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman."
+							}
+						],
+						"url": {
+							"raw": "{{api}}/Location/get-coordinates-by-name?ProvinceName=san",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"Location",
+								"get-coordinates-by-name"
+							],
+							"query": [
+								{
+									"key": "ProvinceName",
+									"value": "san"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "<Bearer Token>",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"id": "baseUrl",
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
