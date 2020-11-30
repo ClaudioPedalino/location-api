@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OpenTracing;
 using Serilog;
 using System;
 using System.Diagnostics;
@@ -26,15 +27,26 @@ namespace location.api.Controllers
         private readonly IMediator _mediator;
         private readonly ILogger _logger;
         private readonly ITransactionService _transactionService;
+        private readonly ITracer _tracer;
 
-        public LocationController(IMediator mediator, ILogger logger, ITransactionService transactionService)
+        public LocationController(IMediator mediator, ILogger logger, ITransactionService transactionService, ITracer tracer)
         {
-            _mediator = mediator;
-            _logger = logger;
-            _transactionService = transactionService;
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _transactionService = transactionService ?? throw new ArgumentNullException(nameof(transactionService));
+            _tracer = tracer ?? throw new ArgumentNullException(nameof(tracer));
         }
 
-
+        #region Endpoint Description
+        /// <summary>
+        /// Get all location from third service integrated
+        /// </summary>
+        /// <returns></returns>
+        #endregion
+        [ProducesResponseType(200)]
+        [ProducesResponseType(500)]
+        [ProducesResponseType(401)]
+        [Produces("application/json", Type = typeof(ProvinceLocationModel))]
         [HttpGet(Routes.Location.Get_All_Locations)]
         [Authorize()]
         //[AllowAnonymous]
@@ -42,27 +54,48 @@ namespace location.api.Controllers
         {
             var watch = new Stopwatch();
             watch.Start();
-            try
+
+            var operationName = $"GET::{Routes.Location.LocationController}/{Routes.Location.Get_All_Locations}";
+            using (var scope = _tracer.BuildSpan(operationName).StartActive(finishSpanOnDispose: true))
             {
-                var response = await _mediator.Send(new GetAllLocationQuery());
+                var span = scope.Span;
+                try
+                {
+                    var response = await _mediator.Send(new GetAllLocationQuery());
 
-                var transactionData = await _transactionService.CreateTransactionAsync(
-                                                User.Claims.FirstOrDefault(i => i.Type == "id").Value,
-                                                User.FindFirst(ClaimTypes.NameIdentifier)?.Value,
-                                                HttpContext.Connection.RemoteIpAddress.ToString(),
-                                                RequestHelper.GetRequestDuration(watch));
+                    var transactionData = await _transactionService.CreateTransactionAsync(
+                                                    User.Claims.FirstOrDefault(i => i.Type == "id").Value,
+                                                    User.FindFirst(ClaimTypes.NameIdentifier)?.Value,
+                                                    HttpContext.Connection.RemoteIpAddress.ToString(),
+                                                    RequestHelper.GetRequestDuration(watch));
 
-                _logger.Information(TemplateTransactionFormat.GetTemplateTransaction(transactionData));
+                    _logger.Information(TemplateTransactionFormat.GetTemplateTransaction(transactionData));
+                    span.Log(TemplateTransactionFormat.GetTemplateTransaction(transactionData));
+                    return Ok(response);
+                }
+                catch (Exception ex)
+                {
+                    _logger.Error(ex, $"Operation failed into [Controller]: {Routes.Location.LocationController} \n  [Endpoint]: {Routes.Location.Get_All_Locations} with message: {ex.Message}");
+                    span.Log($"Operation failed into [Controller]: {Routes.Location.LocationController} \n  [Endpoint]: {Routes.Location.Get_All_Locations} with message: {ex.Message}");
+                    return StatusCode(StatusCodes.Status500InternalServerError);
+                }
 
-                return Ok(response);
             }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, $"Operation failed into [Controller]: {Routes.Location.LocationController} \n  [Endpoint]: {Routes.Location.Get_All_Locations} with message: {ex.Message}");
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
+
         }
 
+
+        #region Endpoint Description
+        /// <summary>
+        /// Get a list of provinces by name, depends of the restriction search coincidence level. (configurable in appsettings.json)
+        /// </summary>
+        /// <param name="request">Provide the province's name to search</param>
+        /// <returns></returns>
+        #endregion
+        [ProducesResponseType(200)]
+        [ProducesResponseType(500)]
+        [ProducesResponseType(401)]
+        [Produces("application/json", Type = typeof(ProvinceLocationModel))]
         [HttpGet(Routes.Location.Get_Coordinates_By_Name)]
         [Authorize()]
         //[AllowAnonymous]
@@ -70,24 +103,37 @@ namespace location.api.Controllers
         {
             var watch = new Stopwatch();
             watch.Start();
-            try
+
+            var operationName = $"GET::{Routes.Location.LocationController}/{Routes.Location.Get_Coordinates_By_Name}";
+
+            using (var scope = _tracer.BuildSpan(operationName).StartActive(finishSpanOnDispose: true))
             {
-                var response = await _mediator.Send(request);
+                var span = scope.Span;
 
-                var transactionData = await _transactionService.CreateTransactionAsync(
-                                                User.Claims.FirstOrDefault(i => i.Type == "id").Value,
-                                                User.FindFirst(ClaimTypes.NameIdentifier)?.Value,
-                                                HttpContext.Connection.RemoteIpAddress.ToString(),
-                                                RequestHelper.GetRequestDuration(watch));
 
-                _logger.Information(TemplateTransactionFormat.GetTemplateTransaction(transactionData));
+                try
+                {
+                    var response = await _mediator.Send(request);
 
-                return Ok(response);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, $"Operation failed into [Controller]: {Routes.Location.LocationController} \n  [Endpoint]: {Routes.Location.Get_Coordinates_By_Name} with message: {ex.Message}");
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                    var transactionData = await _transactionService.CreateTransactionAsync(
+                                                    User.Claims.FirstOrDefault(i => i.Type == "id").Value,
+                                                    User.FindFirst(ClaimTypes.NameIdentifier)?.Value,
+                                                    HttpContext.Connection.RemoteIpAddress.ToString(),
+                                                    RequestHelper.GetRequestDuration(watch));
+
+                    _logger.Information(TemplateTransactionFormat.GetTemplateTransaction(transactionData));
+                    span.Log(TemplateTransactionFormat.GetTemplateTransaction(transactionData));
+
+                    return Ok(response);
+                }
+                catch (Exception ex)
+                {
+                    _logger.Error(ex, $"Operation failed into [Controller]: {Routes.Location.LocationController} \n  [Endpoint]: {Routes.Location.Get_Coordinates_By_Name} with message: {ex.Message}");
+                    span.Log($"Operation failed into [Controller]: {Routes.Location.LocationController} \n  [Endpoint]: {Routes.Location.Get_Coordinates_By_Name} with message: {ex.Message}");
+                    return StatusCode(StatusCodes.Status500InternalServerError);
+                }
+
+
             }
         }
 

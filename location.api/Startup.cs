@@ -10,7 +10,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Converters;
+using OpenTracing;
+using OpenTracing.Util;
 using System;
 
 namespace location.api
@@ -26,8 +29,11 @@ namespace location.api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHttpClient("LocationServiceUrl",
-               c => c.BaseAddress = new System.Uri(Configuration.GetValue<string>("LocationServiceUrl")));
+            services.AddHttpClient("LocationServiceUrl", client =>
+            {
+                client.BaseAddress = new Uri(Configuration.GetValue<string>("LocationServiceUrl"));
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+            });
 
             services
                 .AddControllers()
@@ -44,6 +50,8 @@ namespace location.api
             services.AddMediatR(AppDomain.CurrentDomain.Load("location.core"));
 
             services.AddIdentity(Configuration);
+
+            services.AddTraicing(Configuration);
 
             services.AddScoped<IIdentityService, IdentityService>();
             services.AddTransient<ITransactionService, TransactionService>();

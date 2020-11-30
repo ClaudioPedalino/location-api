@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>location.api</name>
+    </assembly>
+    <members>
+        <member name="M:location.api.Controllers.LocationController.GetAllLocationAsync">
+            <summary>
+            Get All Locations from gob.ar service
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

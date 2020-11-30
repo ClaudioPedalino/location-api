@@ -15,7 +15,8 @@ namespace location.api.Registrations
                                 _configuration["ConnectionStrings:LogTable"],
                                 restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Debug,
                                 needAutoCreateTable: true)
-                    .WriteTo.Seq("http://localhost:5341")
+                    //.WriteTo.Seq("http://localhost:5341")
+                    .WriteTo.Seq(_configuration.GetSection("SeqUrl").Value)
                     .CreateLogger();
             });
 
