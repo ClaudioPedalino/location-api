@@ -11,11 +11,17 @@ services:
     depends_on:
       - pgsql
       - seq
+      - jaeger
     networks:
       - location-net
     build:
       context: .
       dockerfile: location.api/Dockerfile
+    environment:
+      - JAEGER_SERVICE_NAME=location.api
+      - JAEGER_AGENT_HOST=jaeger
+      - JAEGER_AGENT_PORT=6831
+      - JAEGER_SAMPLER_MANAGER_HOST_PORT=jaeger:5778
     ports:
       - '44338:80'
   pgsql:
@@ -42,3 +48,16 @@ services:
       - location-net
     ports:
       - '5341:80'
+  jaeger:
+    container_name: jaeger
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - '5775:5775/udp'
+      - '6831:6831/udp'
+      - '6832:6832/udp'
+      - '5778:5778'
+      - '16686:16686'
+      - '14268:14268'
+      - '9411:9411'
+    networks:
+      - location-net

@@ -9,13 +9,13 @@ namespace location.api.Registrations
     {
         public static IServiceCollection AddSwagger(this IServiceCollection services)
         {
-            var basePath = System.AppDomain.CurrentDomain.BaseDirectory;
-            var xmlPath = Path.Combine(basePath, "location.api.xml");
+            //var basePath = System.AppDomain.CurrentDomain.BaseDirectory;
+            //var xmlPath = Path.Combine(basePath, "location.api.xml");
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Location Api", Version = "v1" });
-                c.IncludeXmlComments(xmlPath);
+                //c.IncludeXmlComments(xmlPath);
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "JWT Authorization header using the Bearer scheme.",
