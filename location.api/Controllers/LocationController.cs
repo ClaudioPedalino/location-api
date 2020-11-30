@@ -12,6 +12,7 @@ using Microsoft.Extensions.Caching.Memory;
 using OpenTracing;
 using Serilog;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Claims;
@@ -59,7 +60,7 @@ namespace location.api.Controllers
         [HttpGet(Routes.Location.Get_All_Locations)]
         [Authorize()]
         //[AllowAnonymous]
-        public async Task<ActionResult<ProvinceLocationModel>> GetAllLocationAsync()
+        public async Task<ActionResult<IEnumerable<ProvinceLocationModel>>> GetAllLocationAsync()
         {
             var watch = new Stopwatch();
             watch.Start();

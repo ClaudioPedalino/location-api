@@ -1,7 +1,10 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using location.api.Auth;
 using location.api.Registrations;
 using location.core.Services;
 using location.core.Services.Interfaces;
+using location.core.Validations;
 using location.data;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -37,7 +40,8 @@ namespace location.api
             services
                 .AddControllers()
                 .AddNewtonsoftJson(options =>
-                    options.SerializerSettings.Converters.Add(new StringEnumConverter()));
+                    options.SerializerSettings.Converters.Add(new StringEnumConverter()))
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<UserLoginCommandValidator>());
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<DataContext>();

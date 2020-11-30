@@ -20,4 +20,8 @@
     <ProjectReference Include="..\location.entities\location.entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="PipelineBehaviors\" />
+  </ItemGroup>
+
 </Project>
