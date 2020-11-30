@@ -22,6 +22,8 @@ services:
       - JAEGER_AGENT_HOST=jaeger
       - JAEGER_AGENT_PORT=6831
       - JAEGER_SAMPLER_MANAGER_HOST_PORT=jaeger:5778
+      - SeqUrl=http://seq:5341
+      - SEQ_ADDRESS=http://seq:5341
     ports:
       - '44338:80'
   pgsql:
@@ -44,6 +46,7 @@ services:
       - '/datadrive:/data'
     environment:
       - ACCEPT_EULA=Y
+    restart: unless-stopped
     networks:
       - location-net
     ports:
