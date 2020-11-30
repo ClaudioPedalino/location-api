@@ -32,6 +32,8 @@ namespace location.api
         {
             services.AddHttpClient(Configuration);
 
+            services.AddMemoryCache();
+
             services
                 .AddControllers()
                 .AddNewtonsoftJson(options =>

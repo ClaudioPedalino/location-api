@@ -1,4 +1,5 @@
-﻿using location.core.Common;
+﻿using location.api.Controllers.Custom;
+using location.core.Common;
 using location.core.Models;
 using location.core.Queries;
 using location.core.Services.Interfaces;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using OpenTracing;
 using Serilog;
 using System;
@@ -22,19 +24,26 @@ namespace location.api.Controllers
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route(Routes.Location.LocationController)]
     [ApiController]
-    public class LocationController : ControllerBase
+    public class LocationController : CustomBaseController
     {
-        private readonly IMediator _mediator;
-        private readonly ILogger _logger;
         private readonly ITransactionService _transactionService;
         private readonly ITracer _tracer;
+        private readonly IMemoryCache _memoryCache;
+        private readonly ILogger _logger;
+        private readonly IMediator _mediator;
 
-        public LocationController(IMediator mediator, ILogger logger, ITransactionService transactionService, ITracer tracer)
+        public LocationController(ITransactionService transactionService, 
+                                  ITracer tracer,
+                                  IMemoryCache memoryCache,
+                                  ILogger logger,
+                                  IMediator mediator) 
+                                  : base(transactionService, logger)
         {
-            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _transactionService = transactionService ?? throw new ArgumentNullException(nameof(transactionService));
             _tracer = tracer ?? throw new ArgumentNullException(nameof(tracer));
+            _memoryCache = memoryCache ?? throw new ArgumentNullException(nameof(memoryCache));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
         #region Endpoint Description
@@ -61,17 +70,17 @@ namespace location.api.Controllers
                 var span = scope.Span;
                 try
                 {
-                    var response = await _mediator.Send(new GetAllLocationQuery());
-
-                    var transactionData = await _transactionService.CreateTransactionAsync(
-                                                    User.Claims.FirstOrDefault(i => i.Type == "id").Value,
-                                                    User.FindFirst(ClaimTypes.NameIdentifier)?.Value,
-                                                    HttpContext.Connection.RemoteIpAddress.ToString(),
-                                                    RequestHelper.GetRequestDuration(watch));
-
-                    _logger.Information(TemplateTransactionFormat.GetTemplateTransaction(transactionData));
-                    span.Log(TemplateTransactionFormat.GetTemplateTransaction(transactionData));
-                    return Ok(response);
+                    if (_memoryCache.Get("get-all-provinces-cached") != null)
+                    {
+                        await LoggingData(watch, span);
+                        return Ok(_memoryCache.Get("get-all-provinces-cached"));
+                    }
+                    else
+                    {
+                        var response = await _mediator.Send(new GetAllLocationQuery());
+                        await LoggingData(watch, span);
+                        return Ok(response);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -81,7 +90,6 @@ namespace location.api.Controllers
                 }
 
             }
-
         }
 
 
@@ -109,21 +117,11 @@ namespace location.api.Controllers
             using (var scope = _tracer.BuildSpan(operationName).StartActive(finishSpanOnDispose: true))
             {
                 var span = scope.Span;
-
-
+                
                 try
                 {
                     var response = await _mediator.Send(request);
-
-                    var transactionData = await _transactionService.CreateTransactionAsync(
-                                                    User.Claims.FirstOrDefault(i => i.Type == "id").Value,
-                                                    User.FindFirst(ClaimTypes.NameIdentifier)?.Value,
-                                                    HttpContext.Connection.RemoteIpAddress.ToString(),
-                                                    RequestHelper.GetRequestDuration(watch));
-
-                    _logger.Information(TemplateTransactionFormat.GetTemplateTransaction(transactionData));
-                    span.Log(TemplateTransactionFormat.GetTemplateTransaction(transactionData));
-
+                    await LoggingData(watch, span);
                     return Ok(response);
                 }
                 catch (Exception ex)
@@ -132,11 +130,8 @@ namespace location.api.Controllers
                     span.Log($"Operation failed into [Controller]: {Routes.Location.LocationController} \n  [Endpoint]: {Routes.Location.Get_Coordinates_By_Name} with message: {ex.Message}");
                     return StatusCode(StatusCodes.Status500InternalServerError);
                 }
-
-
             }
         }
-
 
     }
 }

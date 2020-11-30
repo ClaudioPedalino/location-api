@@ -3,6 +3,7 @@ using location.core.Models;
 using location.core.Queries;
 using location.entities;
 using MediatR;
+using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
 using Serilog;
 using System;
@@ -19,11 +20,13 @@ namespace location.core.Handlers
     {
         private readonly IHttpClientFactory _httpFactory;
         private readonly ILogger _logger;
+        private readonly IMemoryCache _memoryCache;
 
-        public GetAllLocationQueryHandler(IHttpClientFactory httpFactory, ILogger logger)
+        public GetAllLocationQueryHandler(IHttpClientFactory httpFactory, ILogger logger, IMemoryCache memoryCache)
         {
             _httpFactory = httpFactory ?? throw new ArgumentNullException(nameof(httpFactory));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _memoryCache = memoryCache ?? throw new ArgumentNullException(nameof(memoryCache));
         }
 
         public async Task<IEnumerable<ProvinceLocationModel>> Handle(GetAllLocationQuery request, CancellationToken cancellationToken)
@@ -31,12 +34,29 @@ namespace location.core.Handlers
             HttpClient client = _httpFactory.CreateClient("LocationServiceUrl");
 
             Data content = await GetAllProvincesFromService(client, _logger);
-
+            
             if (content == null || content.Total == 0)
             {
                 _logger.Error($"Service  {client.BaseAddress + Routes.LocationClient_GetAllProvinces}   return without data");
                 return null;
             }
+            
+            ///START TESTING IN MEMORT CACHE
+            MemoryCacheEntryOptions cacheExpirationOptions = new MemoryCacheEntryOptions
+            {
+                AbsoluteExpiration = DateTime.Now.AddMinutes(20),
+                Priority = CacheItemPriority.Normal
+            };
+
+            var cachedResponse = _memoryCache.Set("get-all-provinces-cached", 
+                                                  content.Provincias
+                                                         .Select(x =>
+                                                             new ProvinceLocationModel(x.Nombre,
+                                                                                       x.Centroide.Lat,
+                                                                                       x.Centroide.Lon))
+                                                         .OrderBy(x => x.Province), 
+                                                  cacheExpirationOptions);
+            ///END TESTING IN MEMORT CACHE
 
             return content.Provincias
                 .Select(x =>
