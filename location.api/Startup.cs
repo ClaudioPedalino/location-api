@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Converters;
 using OpenTracing;
 using OpenTracing.Util;
+using Polly;
 using System;
 
 namespace location.api
@@ -29,11 +30,7 @@ namespace location.api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHttpClient("LocationServiceUrl", client =>
-            {
-                client.BaseAddress = new Uri(Configuration.GetValue<string>("LocationServiceUrl"));
-                client.DefaultRequestHeaders.Add("Accept", "application/json");
-            });
+            services.AddHttpClient(Configuration);
 
             services
                 .AddControllers()
