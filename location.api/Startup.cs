@@ -2,6 +2,7 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using location.api.Auth;
 using location.api.Registrations;
+using location.core.PipelineBehaviors;
 using location.core.Services;
 using location.core.Services.Interfaces;
 using location.core.Validations;
@@ -10,6 +11,7 @@ using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -33,6 +35,9 @@ namespace location.api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<KestrelServerOptions>(opt => { opt.AllowSynchronousIO = true; });
+            services.AddMetrics();
+            
             services.AddHttpClient(Configuration);
 
             services.AddMemoryCache();
@@ -50,7 +55,8 @@ namespace location.api
 
             services.AddLogging(Configuration);
 
-            services.AddMediatR(AppDomain.CurrentDomain.Load("location.core"));
+            services
+                .AddMediatR(AppDomain.CurrentDomain.Load("location.core"));
 
             services.AddIdentity(Configuration);
 
