@@ -1,9 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
 
 namespace location.api.Registrations
 {
@@ -11,13 +8,13 @@ namespace location.api.Registrations
     {
         public static IServiceCollection AddSwagger(this IServiceCollection services)
         {
-            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Location Api", Version = "v1" });
-                c.IncludeXmlComments(xmlPath);
+                //c.IncludeXmlComments(xmlPath);
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "JWT Authorization header using the Bearer scheme.",

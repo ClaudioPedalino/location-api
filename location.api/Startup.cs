@@ -49,8 +49,7 @@ namespace location.api
 
             services.AddLogging(Configuration);
 
-            services
-                .AddMediatR(AppDomain.CurrentDomain.Load("location.core"));
+            services.AddMediatR(AppDomain.CurrentDomain.Load("location.core"));
 
             services.AddIdentity(Configuration);
 
