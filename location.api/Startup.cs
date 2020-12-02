@@ -1,8 +1,6 @@
-using FluentValidation;
 using FluentValidation.AspNetCore;
 using location.api.Auth;
 using location.api.Registrations;
-using location.core.PipelineBehaviors;
 using location.core.Services;
 using location.core.Services.Interfaces;
 using location.core.Validations;
@@ -15,11 +13,7 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Converters;
-using OpenTracing;
-using OpenTracing.Util;
-using Polly;
 using System;
 
 namespace location.api
@@ -37,7 +31,7 @@ namespace location.api
         {
             services.Configure<KestrelServerOptions>(opt => { opt.AllowSynchronousIO = true; });
             services.AddMetrics();
-            
+
             services.AddHttpClient(Configuration);
 
             services.AddMemoryCache();

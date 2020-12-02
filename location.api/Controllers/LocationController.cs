@@ -14,8 +14,6 @@ using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -33,11 +31,11 @@ namespace location.api.Controllers
         private readonly ILogger _logger;
         private readonly IMediator _mediator;
 
-        public LocationController(ITransactionService transactionService, 
+        public LocationController(ITransactionService transactionService,
                                   ITracer tracer,
                                   IMemoryCache memoryCache,
                                   ILogger logger,
-                                  IMediator mediator) 
+                                  IMediator mediator)
                                   : base(transactionService, logger)
         {
             _transactionService = transactionService ?? throw new ArgumentNullException(nameof(transactionService));
@@ -118,7 +116,7 @@ namespace location.api.Controllers
             using (var scope = _tracer.BuildSpan(operationName).StartActive(finishSpanOnDispose: true))
             {
                 var span = scope.Span;
-                
+
                 try
                 {
                     var response = await _mediator.Send(request);

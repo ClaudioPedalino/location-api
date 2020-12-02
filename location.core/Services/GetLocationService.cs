@@ -25,12 +25,12 @@ namespace location.core.Services
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public List<Provincia> FilterProvinceRequestedByName_Strict(string request, List<Provincia> content) 
+        public List<Provincia> FilterProvinceRequestedByName_Strict(string request, List<Provincia> content)
             => content.Where(x => x.Nombre.Equals(request)).ToList();
-        public List<Provincia> FilterProvinceRequestedByName_Flexible(string request, List<Provincia> content) 
+        public List<Provincia> FilterProvinceRequestedByName_Flexible(string request, List<Provincia> content)
             => content.Where(x => x.Nombre.RemoveAccents().Lowered().Equals(request.RemoveAccents().Lowered())).ToList();
 
-        public List<Provincia> FilterProvinceRequestedByName_Like(string request, List<Provincia> content) 
+        public List<Provincia> FilterProvinceRequestedByName_Like(string request, List<Provincia> content)
             => content.Where(x => x.Nombre.RemoveAccents().Lowered().Contains(request.RemoveAccents().Lowered())).ToList();
 
         public async Task<Data> GetAllProvincesFromService()

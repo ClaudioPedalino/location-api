@@ -1,11 +1,9 @@
 ﻿using location.core.Common;
 using location.core.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
 using OpenTracing;
 using Serilog;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Claims;
@@ -27,7 +25,7 @@ namespace location.api.Controllers.Custom
         }
 
         [HttpOptions()]
-        public async Task LoggingData([FromQuery]Stopwatch watch, ISpan span)
+        public async Task LoggingData([FromQuery] Stopwatch watch, ISpan span)
         {
             var transactionData = await _transactionService.CreateTransactionAsync(
                                                                 User.Claims.FirstOrDefault(i => i.Type == "id").Value,

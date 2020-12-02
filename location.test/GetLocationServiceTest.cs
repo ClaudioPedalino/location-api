@@ -1,14 +1,9 @@
-using location.core.Models;
 using location.core.Services;
 using location.test.Mock;
-using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using Serilog;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace location.test
@@ -23,7 +18,7 @@ namespace location.test
             _httpFactory = Substitute.For<IHttpClientFactory>();
             _logger = Substitute.For<ILogger>();
         }
-        
+
         #region Testing_Strict_Search
         [Fact]
         public void Should_Get_Province_BY_Strict_Search()

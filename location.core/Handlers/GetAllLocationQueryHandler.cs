@@ -34,13 +34,13 @@ namespace location.core.Handlers
             HttpClient client = _httpFactory.CreateClient("LocationServiceUrl");
 
             Data content = await GetAllProvincesFromService(client, _logger);
-            
+
             if (content == null || content.Total == 0)
             {
                 _logger.Error($"Service  {client.BaseAddress + Routes.LocationClient_GetAllProvinces}   return without data");
                 return null;
             }
-            
+
             ///START TESTING IN MEMORT CACHE
             MemoryCacheEntryOptions cacheExpirationOptions = new MemoryCacheEntryOptions
             {
@@ -48,13 +48,13 @@ namespace location.core.Handlers
                 Priority = CacheItemPriority.Normal
             };
 
-            var cachedResponse = _memoryCache.Set("get-all-provinces-cached", 
+            var cachedResponse = _memoryCache.Set("get-all-provinces-cached",
                                                   content.Provincias
                                                          .Select(x =>
                                                              new ProvinceLocationModel(x.Nombre,
                                                                                        x.Centroide.Lat,
                                                                                        x.Centroide.Lon))
-                                                         .OrderBy(x => x.Province), 
+                                                         .OrderBy(x => x.Province),
                                                   cacheExpirationOptions);
             ///END TESTING IN MEMORT CACHE
 

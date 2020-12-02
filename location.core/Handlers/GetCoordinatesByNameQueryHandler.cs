@@ -34,7 +34,7 @@ namespace location.core.Handlers
                 return new List<ProvinceLocationModel>() { new ProvinceLocationModel("No parameter given") };
 
             Data content = await _getLocationService.GetAllProvincesFromService();
-            
+
             var provinceRequested = GetCoincidence(request, content.Provincias);
             return provinceRequested != null && provinceRequested.Count > 0
                 ? provinceRequested
