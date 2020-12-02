@@ -16,8 +16,5 @@ namespace location.data
             optionsBuilder.EnableSensitiveDataLogging();
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-        }
     }
 }

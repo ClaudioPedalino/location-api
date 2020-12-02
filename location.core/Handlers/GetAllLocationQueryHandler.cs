@@ -42,20 +42,7 @@ namespace location.core.Handlers
             }
 
             ///START TESTING IN MEMORT CACHE
-            MemoryCacheEntryOptions cacheExpirationOptions = new MemoryCacheEntryOptions
-            {
-                AbsoluteExpiration = DateTime.Now.AddMinutes(20),
-                Priority = CacheItemPriority.Normal
-            };
-
-            var cachedResponse = _memoryCache.Set("get-all-provinces-cached",
-                                                  content.Provincias
-                                                         .Select(x =>
-                                                             new ProvinceLocationModel(x.Nombre,
-                                                                                       x.Centroide.Lat,
-                                                                                       x.Centroide.Lon))
-                                                         .OrderBy(x => x.Province),
-                                                  cacheExpirationOptions);
+            SaveInCache(content);
             ///END TESTING IN MEMORT CACHE
 
             return content.Provincias
@@ -66,6 +53,21 @@ namespace location.core.Handlers
                 .OrderBy(x => x.Province);
         }
 
+        private void SaveInCache(Data content)
+        {
+            MemoryCacheEntryOptions cacheExpirationOptions = new MemoryCacheEntryOptions
+            {
+                AbsoluteExpiration = DateTime.Now.AddMinutes(20),
+                Priority = CacheItemPriority.Normal
+            };
+
+            _memoryCache.Set("get-all-provinces-cached",
+                             content.Provincias.Select(x => new ProvinceLocationModel(x.Nombre,
+                                                                                     x.Centroide.Lat,
+                                                                                     x.Centroide.Lon))
+                                                .OrderBy(x => x.Province),
+                             cacheExpirationOptions);
+        }
 
         private async Task<Data> GetAllProvincesFromService(HttpClient client, ILogger _logger)
         {

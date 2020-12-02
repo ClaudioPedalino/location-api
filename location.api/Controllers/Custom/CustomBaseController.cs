@@ -18,7 +18,7 @@ namespace location.api.Controllers.Custom
         private readonly ITransactionService _transactionService;
         private readonly ILogger _logger;
 
-        public CustomBaseController(ITransactionService transactionService, ILogger logger)
+        protected CustomBaseController(ITransactionService transactionService, ILogger logger)
         {
             _transactionService = transactionService ?? throw new ArgumentNullException(nameof(transactionService));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

@@ -22,26 +22,26 @@ BD:\_Repos\location-api\location.core\Common\AuthSuccessResponse.cs
 
  $
 
- f
-@D:\_Repos\location-api\location.core\Common\Enums\BooleanEnum.cs
+ b
+<D:\_Repos\location-api\location.core\Common\Enums\Boolean.cs
 
- 
+ 
 
  
 
- ‚
-PD:\_Repos\location-api\location.core\Common\Enums\MatchingConstraintLevelEnum.cs
+ ~
+LD:\_Repos\location-api\location.core\Common\Enums\MatchingConstraintLevel.cs
 
- +
+ '
 
  
 
  
 
- ñ
-CD:\_Repos\location-api\location.core\Common\Enums\ProvinciasEnum.cs
+ í
+?D:\_Repos\location-api\location.core\Common\Enums\Provincias.cs
 
- 
+ 
 
  
 
@@ -94,27 +94,25 @@ CD:\_Repos\location-api\location.core\Common\Enums\ProvinciasEnum.cs
  <Ë
 ID:\_Repos\location-api\location.core\Common\Extensions\StringExtension.cs
 
- '
+ '
 
-
+		 *
+		7 :
 
- *
-
-
-7 : 
+ 
 
- $
-1 4 
+ $
+1 4 
 
- *
-7 :# &
-   .
-  !  
- I J) *
- # #
+ *
+7 :# &
+   .
+  !  
+ I J) *
+ # #
 
-!! $
-!!1 4"" v
+   $
+  1 4!! v
 <D:\_Repos\location-api\location.core\Common\RequestHelper.cs
 
  %
@@ -125,7 +123,7 @@ ID:\_Repos\location-api\location.core\Common\Extensions\StringExtension.cs
  ×
 5D:\_Repos\location-api\location.core\Common\Routes.cs
 
- 
+ 
   # '
  #0 72
   ( ,+ /5 9%%0 4
@@ -166,7 +164,7 @@ HD:\_Repos\location-api\location.core\Common\TemplateTransactionFormat.cs
  1
 
  3F
-I Q& . 1 9W _ 8 @°
+I Q& . 1 9W _ 8 @„
 KD:\_Repos\location-api\location.core\Handlers\GetAllLocationQueryHandler.cs
 
  +
@@ -197,42 +195,36 @@ KD:\_Repos\location-api\location.core\Handlers\GetAllLocationQueryHandler.cs
 FFW ^II; B
 HH  (II1 9OO$ ,
 II JJ 
-YY ,II ((
-RR0 1RR" #RRQ RVV1 2
-
-RR% /
-RRG OTT( 0
-
-RRS _
-TT VV4 @
+YY ,II (
+RR( 2OO #
+RRG OTT( 0
+TT VV7 C
 YY8 >__= C(
 YYT \[[ ]] ]]2 :
-YYf m__ â
+YYf m__ ¬
 QD:\_Repos\location-api\location.core\Handlers\GetCoordinatesByNameQueryHandler.cs
 
- 1
-, 8 <
-- @ $$! 466  388  3::  32
-( 6 @@' 5AA+ 9BB) 7
+ 1<
+- @   ! 422  344  366  32
+( 6 <<' 5==+ 9>>) 7
 
- /
-C N &X c
-D V" 4f x
-? L *\ i
+ /
+D V" 4f x
+? L *\ i
 
-> D
-_ f!!* 1&&3 :
-	z ‹
-$$ &&< C(
-&& !'' $''0 A(( #
-22  .&&$ 2(
-)) ++ ,, -- (
-22I P66Y `88[ b::W ^*
-22b i	66z 	88| ƒ::x <
-44 )66 88 :: << ==  
-BB #55 
-AA %77 %
-@@ !99 !´
+> D
+_ f* 1""3 :
+	z ‹
+   ""< C(
+"" !## $##0 A$$ #
+..  .""$ 2(
+%% '' (( )) (
+..I P22Y `44[ b66W ^*
+..b i	22z 	44| ƒ66x <
+00 )22 44 66 88 99  
+>> #11 
+== %33 %
+<< !55 !´
 FD:\_Repos\location-api\location.core\Interfaces\IGetLocationService.cs
 
  (

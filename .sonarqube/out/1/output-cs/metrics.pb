@@ -2,14 +2,15 @@ V
 AD:\_Repos\location-api\location.core\Commands\UserLoginCommand.cs 8jr	]
 HD:\_Repos\location-api\location.core\Commands\UserRegistrationCommand.cs 8jr	T
 BD:\_Repos\location-api\location.core\Common\AuthFailureResponse.cs 8r	S
-BD:\_Repos\location-api\location.core\Common\AuthSuccessResponse.cs 8rL
-@D:\_Repos\location-api\location.core\Common\Enums\BooleanEnum.csr]
-PD:\_Repos\location-api\location.core\Common\Enums\MatchingConstraintLevelEnum.csr		
-e
-CD:\_Repos\location-api\location.core\Common\Enums\ProvinciasEnum.csr	
-Å
-ID:\_Repos\location-api\location.core\Common\Extensions\StringExtension.cs 8r	
-!"$%xÇ	"Y
+BD:\_Repos\location-api\location.core\Common\AuthSuccessResponse.cs 8rH
+<D:\_Repos\location-api\location.core\Common\Enums\Boolean.csrY
+LD:\_Repos\location-api\location.core\Common\Enums\MatchingConstraintLevel.csr		
+a
+?D:\_Repos\location-api\location.core\Common\Enums\Provincias.csr	
+Ä
+ID:\_Repos\location-api\location.core\Common\Extensions\StringExtension.cs 8r	
+ !#$xÇ	
+!Y
 <D:\_Repos\location-api\location.core\Common\RequestHelper.cs 8r	
 Ç	
 Y
@@ -19,9 +20,9 @@ HD:\_Repos\location-api\location.core\Common\TemplateTransactionFormat.cs 8r
 	
 Ç◊
 KD:\_Repos\location-api\location.core\Handlers\GetAllLocationQueryHandler.cs 8j,;rT	
- !"$&'()*-./013456789:=>?@ABCFGHIJKLMOPRSTVWYZ[]^_`abcdexÇ#"$&()/03456789=>?@ABHIJLOTV[]_`b∑
-QD:\_Repos\location-api\location.core\Handlers\GetCoordinatesByNameQueryHandler.cs 8r=	
- !"$&'()*+,-./023456789:;<=>@ABCDxÇ!"$&'()+,-56789:<=@AB\
+ !"$&'()*-./013456789:=>?@ABCFGHIJKLMOPRSTVWYZ[]^_`abcdexÇ#"$&()/03456789=>?@ABHIJLOTV[]_`b≤
+QD:\_Repos\location-api\location.core\Handlers\GetCoordinatesByNameQueryHandler.cs 8r9	
+ "#$%&'()*+,./0123456789:<=>?@xÇ "#$%'()12345689<=>\
 FD:\_Repos\location-api\location.core\Interfaces\IGetLocationService.csr	
 U
 FD:\_Repos\location-api\location.core\Interfaces\ITransactionService.csr		
