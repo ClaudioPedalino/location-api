@@ -543,188 +543,188 @@ LoginAsync# -
 } 
 } °
 ND:\_Repos\location-api\location.api\Controllers\Custom\CustomBaseController.cs
-	namespace 	
-location
+	namespace 	
+location
  
-. 
-api 
-. 
-Controllers "
-." #
-Custom# )
-{ 
-[ 
-Route 
+. 
+api 
+. 
+Controllers "
+." #
+Custom# )
+{ 
+[ 
+Route 
 
-(
+(
  
-$str 
-) 
-] 
-[ 
-ApiController 
-] 
-public 
+$str 
+) 
+] 
+[ 
+ApiController 
+] 
+public 
 
-abstract 
-class  
-CustomBaseController .
-:/ 0
-ControllerBase1 ?
-{ 
-private 
-readonly 
-ITransactionService ,
-_transactionService- @
-;@ A
-private 
-readonly 
-ILogger  
-_logger! (
-;( )
-public  
-CustomBaseController #
-(# $
-ITransactionService$ 7
-transactionService8 J
-,J K
-ILoggerL S
-loggerT Z
-)Z [
-{ 	
-_transactionService 
-=  !
-transactionService" 4
-??5 7
-throw8 =
-new> A!
-ArgumentNullExceptionB W
-(W X
-nameofX ^
-(^ _
-transactionService_ q
-)q r
-)r s
-;s t
-_logger 
-= 
-logger 
-?? 
-throw  %
-new& )!
-ArgumentNullException* ?
-(? @
-nameof@ F
-(F G
-loggerG M
-)M N
-)N O
-;O P
-} 	
-[ 	
-HttpOptions	 
-( 
-) 
-] 
-public 
-async 
-Task 
-LoggingData %
-(% &
-[& '
-	FromQuery' 0
-]0 1
-	Stopwatch1 :
-watch; @
-,@ A
-ISpanB G
-spanH L
-)L M
-{ 	
-var   
-transactionData   
-=    !
-await  " '
-_transactionService  ( ;
-.  ; <"
-CreateTransactionAsync  < R
-(  R S
-User!!@ D
-.!!D E
-Claims!!E K
-.!!K L
-FirstOrDefault!!L Z
-(!!Z [
-i!![ \
-=>!!] _
-i!!` a
-.!!a b
-Type!!b f
-==!!g i
-$str!!j n
-)!!n o
-.!!o p
-Value!!p u
-,!!u v
-User""@ D
-.""D E
-	FindFirst""E N
-(""N O
+abstract 
+class  
+CustomBaseController .
+:/ 0
+ControllerBase1 ?
+{ 
+private 
+readonly 
+ITransactionService ,
+_transactionService- @
+;@ A
+private 
+readonly 
+ILogger  
+_logger! (
+;( )
+public  
+CustomBaseController #
+(# $
+ITransactionService$ 7
+transactionService8 J
+,J K
+ILoggerL S
+loggerT Z
+)Z [
+{ 	
+_transactionService 
+=  !
+transactionService" 4
+??5 7
+throw8 =
+new> A!
+ArgumentNullExceptionB W
+(W X
+nameofX ^
+(^ _
+transactionService_ q
+)q r
+)r s
+;s t
+_logger 
+= 
+logger 
+?? 
+throw  %
+new& )!
+ArgumentNullException* ?
+(? @
+nameof@ F
+(F G
+loggerG M
+)M N
+)N O
+;O P
+} 	
+[ 	
+HttpOptions	 
+( 
+) 
+] 
+public 
+async 
+Task 
+LoggingData %
+(% &
+[& '
+	FromQuery' 0
+]0 1
+	Stopwatch2 ;
+watch< A
+,A B
+ISpanC H
+spanI M
+)M N
+{ 	
+var 
+transactionData 
+=  !
+await" '
+_transactionService( ;
+.; <"
+CreateTransactionAsync< R
+(R S
+User@ D
+.D E
+ClaimsE K
+.K L
+FirstOrDefaultL Z
+(Z [
+i[ \
+=>] _
+i` a
+.a b
+Typeb f
+==g i
+$strj n
+)n o
+.o p
+Valuep u
+,u v
+User  @ D
+.  D E
+	FindFirst  E N
+(  N O
 
-ClaimTypes""O Y
-.""Y Z
-NameIdentifier""Z h
-)""h i
-?""i j
-.""j k
-Value""k p
-,""p q
-HttpContext##@ K
-.##K L
+ClaimTypes  O Y
+.  Y Z
+NameIdentifier  Z h
+)  h i
+?  i j
+.  j k
+Value  k p
+,  p q
+HttpContext!!@ K
+.!!K L
 
-Connection##L V
-.##V W
-RemoteIpAddress##W f
-.##f g
-ToString##g o
-(##o p
-)##p q
-,##q r
-RequestHelper$$@ M
-.$$M N
-GetRequestDuration$$N `
-($$` a
-watch$$a f
-)$$f g
-)$$g h
-;$$h i
-_logger&& 
-.&& 
-Information&& 
-(&&  %
-TemplateTransactionFormat&&  9
-.&&9 :"
-GetTemplateTransaction&&: P
-(&&P Q
-transactionData&&Q `
-)&&` a
-)&&a b
-;&&b c
-span'' 
-.'' 
-Log'' 
-('' %
-TemplateTransactionFormat'' .
-.''. /"
-GetTemplateTransaction''/ E
-(''E F
-transactionData''F U
-)''U V
-)''V W
-;''W X
-}(( 	
-})) 
-}** ê%
+Connection!!L V
+.!!V W
+RemoteIpAddress!!W f
+.!!f g
+ToString!!g o
+(!!o p
+)!!p q
+,!!q r
+RequestHelper""@ M
+.""M N
+GetRequestDuration""N `
+(""` a
+watch""a f
+)""f g
+)""g h
+;""h i
+_logger$$ 
+.$$ 
+Information$$ 
+($$  %
+TemplateTransactionFormat$$  9
+.$$9 :"
+GetTemplateTransaction$$: P
+($$P Q
+transactionData$$Q `
+)$$` a
+)$$a b
+;$$b c
+span%% 
+.%% 
+Log%% 
+(%% %
+TemplateTransactionFormat%% .
+.%%. /"
+GetTemplateTransaction%%/ E
+(%%E F
+transactionData%%F U
+)%%U V
+)%%V W
+;%%W X
+}&& 	
+}'' 
+}(( ê%
 ED:\_Repos\location-api\location.api\Controllers\IdentityController.cs
 	namespace 	
 location
@@ -990,116 +990,144 @@ SelectMany882 <
 )99 
 ;99 
 }:: 
-};; °d
+};; ïd
 ED:\_Repos\location-api\location.api\Controllers\LocationController.cs
-	namespace 	
-location
+	namespace 	
+location
  
-. 
-api 
-. 
-Controllers "
-{ 
-[ 
-	Authorize 
-( !
-AuthenticationSchemes $
-=% &
-JwtBearerDefaults' 8
-.8 9 
-AuthenticationScheme9 M
-)M N
-]N O
-[ 
-Route 
+. 
+api 
+. 
+Controllers "
+{ 
+[ 
+	Authorize 
+( !
+AuthenticationSchemes $
+=% &
+JwtBearerDefaults' 8
+.8 9 
+AuthenticationScheme9 M
+)M N
+]N O
+[ 
+Route 
 
-(
+(
  
-Routes 
-. 
-Location 
-. 
-LocationController -
-)- .
-]. /
-[ 
-ApiController 
-] 
-public 
+Routes 
+. 
+Location 
+. 
+LocationController -
+)- .
+]. /
+[ 
+ApiController 
+] 
+public 
 
-class 
-LocationController #
-:$ % 
-CustomBaseController& :
-{ 
+class 
+LocationController #
+:$ % 
+CustomBaseController& :
+{ 
+private 
+readonly 
+ITransactionService ,
+_transactionService- @
+;@ A
+private 
+readonly 
+ITracer  
+_tracer! (
+;( )
 private 
-readonly 
-ITransactionService ,
-_transactionService- @
-;@ A
+readonly 
+IMemoryCache %
+_memoryCache& 2
+;2 3
 private 
 readonly 
-ITracer  
-_tracer! (
+ILogger  
+_logger! (
 ;( )
 private   
-readonly   
-IMemoryCache   %
-_memoryCache  & 2
-;  2 3
-private!! 
-readonly!! 
-ILogger!!  
-_logger!!! (
-;!!( )
-private"" 
-readonly"" 
-	IMediator"" "
-	_mediator""# ,
-;"", -
-public$$ 
-LocationController$$ !
-($$! "
-ITransactionService$$" 5
-transactionService$$6 H
-,$$H I
-ITracer%%" )
-tracer%%* 0
-,%%0 1
-IMemoryCache&&" .
-memoryCache&&/ :
-,&&: ;
-ILogger''" )
-logger''* 0
-,''0 1
-	IMediator((" +
-mediator((, 4
-)((4 5
-:))" #
-base))$ (
-())( )
-transactionService))) ;
-,)); <
-logger))= C
-)))C D
-{** 	
-_transactionService++ 
-=++  !
-transactionService++" 4
-??++5 7
-throw++8 =
-new++> A!
-ArgumentNullException++B W
-(++W X
-nameof++X ^
-(++^ _
-transactionService++_ q
-)++q r
-)++r s
-;++s t
-_tracer,, 
+readonly   
+	IMediator   "
+	_mediator  # ,
+;  , -
+public"" 
+LocationController"" !
+(""! "
+ITransactionService""" 5
+transactionService""6 H
+,""H I
+ITracer##" )
+tracer##* 0
+,##0 1
+IMemoryCache$$" .
+memoryCache$$/ :
+,$$: ;
+ILogger%%" )
+logger%%* 0
+,%%0 1
+	IMediator&&" +
+mediator&&, 4
+)&&4 5
+:''" #
+base''$ (
+(''( )
+transactionService'') ;
+,''; <
+logger''= C
+)''C D
+{(( 	
+_transactionService)) 
+=))  !
+transactionService))" 4
+??))5 7
+throw))8 =
+new))> A!
+ArgumentNullException))B W
+())W X
+nameof))X ^
+())^ _
+transactionService))_ q
+)))q r
+)))r s
+;))s t
+_tracer** 
+=** 
+tracer** 
+??** 
+throw**  %
+new**& )!
+ArgumentNullException*** ?
+(**? @
+nameof**@ F
+(**F G
+tracer**G M
+)**M N
+)**N O
+;**O P
+_memoryCache++ 
+=++ 
+memoryCache++ &
+??++' )
+throw++* /
+new++0 3!
+ArgumentNullException++4 I
+(++I J
+nameof++J P
+(++P Q
+memoryCache++Q \
+)++\ ]
+)++] ^
+;++^ _
+_logger,, 
 =,, 
-tracer,, 
+logger,, 
 ??,, 
 throw,,  %
 new,,& )!
@@ -1107,650 +1135,606 @@ ED:\_Repos\location-api\location.api\Controllers\LocationController.cs
 (,,? @
 nameof,,@ F
 (,,F G
-tracer,,G M
+logger,,G M
 ),,M N
 ),,N O
-;,,O P
-_memoryCache-- 
-=-- 
-memoryCache-- &
-??--' )
-throw--* /
-new--0 3!
-ArgumentNullException--4 I
-(--I J
-nameof--J P
-(--P Q
-memoryCache--Q \
-)--\ ]
-)--] ^
-;--^ _
-_logger.. 
-=.. 
-logger.. 
-??.. 
-throw..  %
-new..& )!
-ArgumentNullException..* ?
-(..? @
-nameof..@ F
-(..F G
-logger..G M
-)..M N
-)..N O
-;..O P
-	_mediator// 
-=// 
-mediator//  
-??//! #
-throw//$ )
-new//* -!
-ArgumentNullException//. C
-(//C D
-nameof//D J
-(//J K
-mediator//K S
-)//S T
-)//T U
-;//U V
-}00 	
+;,,O P
+	_mediator-- 
+=-- 
+mediator--  
+??--! #
+throw--$ )
+new--* -!
+ArgumentNullException--. C
+(--C D
+nameof--D J
+(--J K
+mediator--K S
+)--S T
+)--T U
+;--U V
+}.. 	
+[66 	 
+ProducesResponseType66	 
+(66 
+$num66 !
+)66! "
+]66" #
+[77 	 
+ProducesResponseType77	 
+(77 
+$num77 !
+)77! "
+]77" #
 [88 	 
 ProducesResponseType88	 
 (88 
 $num88 !
 )88! "
 ]88" #
-[99 	 
-ProducesResponseType99	 
-(99 
-$num99 !
-)99! "
-]99" #
-[:: 	 
-ProducesResponseType::	 
-(:: 
-$num:: !
-)::! "
-]::" #
-[;; 	
-Produces;;	 
-(;; 
-$str;; $
-,;;$ %
-Type;;& *
-=;;+ ,
-typeof;;- 3
-(;;3 4!
-ProvinceLocationModel;;4 I
-);;I J
-);;J K
-];;K L
-[<< 	
-HttpGet<<	 
-(<< 
-Routes<< 
-.<< 
-Location<<  
-.<<  !
-Get_All_Locations<<! 2
-)<<2 3
-]<<3 4
-[== 	
-	Authorize==	 
-(== 
-)== 
-]== 
-public?? 
-async?? 
-Task?? 
-<?? 
-ActionResult?? &
-<??& '
-IEnumerable??' 2
-<??2 3!
-ProvinceLocationModel??3 H
->??H I
->??I J
->??J K
-GetAllLocationAsync??L _
-(??_ `
-)??` a
-{@@ 	
-varAA 
-watchAA 
-=AA 
-newAA 
-	StopwatchAA %
-(AA% &
-)AA& '
-;AA' (
-watchBB 
-.BB 
-StartBB 
-(BB 
-)BB 
-;BB 
-varDD 
-operationNameDD 
-=DD 
-$"DD  "
-GET::DD" '
-{DD' (
-RoutesDD( .
-.DD. /
-LocationDD/ 7
-.DD7 8
-LocationControllerDD8 J
-}DDJ K
-/DDK L
-{DDL M
-RoutesDDM S
-.DDS T
-LocationDDT \
-.DD\ ]
-Get_All_LocationsDD] n
-}DDn o
-"DDo p
-;DDp q
-usingEE 
-(EE 
-varEE 
-scopeEE 
-=EE 
-_tracerEE &
-.EE& '
-	BuildSpanEE' 0
-(EE0 1
-operationNameEE1 >
-)EE> ?
-.EE? @
-StartActiveEE@ K
-(EEK L
-finishSpanOnDisposeEEL _
-:EE_ `
-trueEEa e
-)EEe f
-)EEf g
-{FF 
-varGG 
-spanGG 
-=GG 
-scopeGG  
-.GG  !
-SpanGG! %
-;GG% &
-tryHH 
-{II 
-ifJJ 
-(JJ 
-_memoryCacheJJ $
-.JJ$ %
-GetJJ% (
-(JJ( )
-$strJJ) C
-)JJC D
-!=JJE G
-nullJJH L
-)JJL M
-{KK 
-awaitLL 
-LoggingDataLL )
-(LL) *
-watchLL* /
-,LL/ 0
-spanLL1 5
-)LL5 6
-;LL6 7
-returnMM 
-OkMM !
-(MM! "
-_memoryCacheMM" .
-.MM. /
-GetMM/ 2
-(MM2 3
-$strMM3 M
-)MMM N
-)MMN O
-;MMO P
-}NN 
-elseOO 
-{PP 
-varQQ 
-responseQQ $
-=QQ% &
-awaitQQ' ,
-	_mediatorQQ- 6
-.QQ6 7
-SendQQ7 ;
-(QQ; <
-newQQ< ?
-GetAllLocationQueryQQ@ S
-(QQS T
-)QQT U
-)QQU V
-;QQV W
-awaitRR 
-LoggingDataRR )
-(RR) *
-watchRR* /
-,RR/ 0
-spanRR1 5
-)RR5 6
-;RR6 7
-returnSS 
-OkSS !
-(SS! "
-responseSS" *
-)SS* +
-;SS+ ,
-}TT 
-}UU 
-catchVV 
-(VV 
-	ExceptionVV  
-exVV! #
-)VV# $
-{WW 
-_loggerXX 
-.XX 
-ErrorXX !
-(XX! "
-exXX" $
-,XX$ %
-$"XX& (0
-$Operation failed into [Controller]: XX( L
-{XXL M
-RoutesXXM S
-.XXS T
-LocationXXT \
-.XX\ ]
-LocationControllerXX] o
-}XXo p
- \n  [Endpoint]: 	XXp Å
+[99 	
+Produces99	 
+(99 
+$str99 $
+,99$ %
+Type99& *
+=99+ ,
+typeof99- 3
+(993 4!
+ProvinceLocationModel994 I
+)99I J
+)99J K
+]99K L
+[:: 	
+HttpGet::	 
+(:: 
+Routes:: 
+.:: 
+Location::  
+.::  !
+Get_All_Locations::! 2
+)::2 3
+]::3 4
+[;; 	
+	Authorize;;	 
+(;; 
+);; 
+];; 
+public== 
+async== 
+Task== 
+<== 
+ActionResult== &
+<==& '
+IEnumerable==' 2
+<==2 3!
+ProvinceLocationModel==3 H
+>==H I
+>==I J
+>==J K
+GetAllLocationAsync==L _
+(==_ `
+)==` a
+{>> 	
+var?? 
+watch?? 
+=?? 
+new?? 
+	Stopwatch?? %
+(??% &
+)??& '
+;??' (
+watch@@ 
+.@@ 
+Start@@ 
+(@@ 
+)@@ 
+;@@ 
+varBB 
+operationNameBB 
+=BB 
+$"BB  "
+GET::BB" '
+{BB' (
+RoutesBB( .
+.BB. /
+LocationBB/ 7
+.BB7 8
+LocationControllerBB8 J
+}BBJ K
+/BBK L
+{BBL M
+RoutesBBM S
+.BBS T
+LocationBBT \
+.BB\ ]
+Get_All_LocationsBB] n
+}BBn o
+"BBo p
+;BBp q
+usingCC 
+(CC 
+varCC 
+scopeCC 
+=CC 
+_tracerCC &
+.CC& '
+	BuildSpanCC' 0
+(CC0 1
+operationNameCC1 >
+)CC> ?
+.CC? @
+StartActiveCC@ K
+(CCK L
+finishSpanOnDisposeCCL _
+:CC_ `
+trueCCa e
+)CCe f
+)CCf g
+{DD 
+varEE 
+spanEE 
+=EE 
+scopeEE  
+.EE  !
+SpanEE! %
+;EE% &
+tryFF 
+{GG 
+ifHH 
+(HH 
+_memoryCacheHH $
+.HH$ %
+GetHH% (
+(HH( )
+$strHH) C
+)HHC D
+!=HHE G
+nullHHH L
+)HHL M
+{II 
+awaitJJ 
+LoggingDataJJ )
+(JJ) *
+watchJJ* /
+,JJ/ 0
+spanJJ1 5
+)JJ5 6
+;JJ6 7
+returnKK 
+OkKK !
+(KK! "
+_memoryCacheKK" .
+.KK. /
+GetKK/ 2
+(KK2 3
+$strKK3 M
+)KKM N
+)KKN O
+;KKO P
+}LL 
+elseMM 
+{NN 
+varOO 
+responseOO $
+=OO% &
+awaitOO' ,
+	_mediatorOO- 6
+.OO6 7
+SendOO7 ;
+(OO; <
+newOO< ?
+GetAllLocationQueryOO@ S
+(OOS T
+)OOT U
+)OOU V
+;OOV W
+awaitPP 
+LoggingDataPP )
+(PP) *
+watchPP* /
+,PP/ 0
+spanPP1 5
+)PP5 6
+;PP6 7
+returnQQ 
+OkQQ !
+(QQ! "
+responseQQ" *
+)QQ* +
+;QQ+ ,
+}RR 
+}SS 
+catchTT 
+(TT 
+	ExceptionTT  
+exTT! #
+)TT# $
+{UU 
+_loggerVV 
+.VV 
+ErrorVV !
+(VV! "
+exVV" $
+,VV$ %
+$"VV& (0
+$Operation failed into [Controller]: VV( L
+{VVL M
+RoutesVVM S
+.VVS T
+LocationVVT \
+.VV\ ]
+LocationControllerVV] o
+}VVo p
+ \n  [Endpoint]: 	VVp Å
 {
-XXÅ Ç
+VVÅ Ç
 Routes
-XXÇ à
+VVÇ à
 .
-XXà â
+VVà â
 Location
-XXâ ë
+VVâ ë
 .
-XXë í
+VVë í
 Get_All_Locations
-XXí £
+VVí £
 }
-XX£ §
+VV£ §
  with message: 
-XX§ ≥
+VV§ ≥
 {
-XX≥ ¥
+VV≥ ¥
 ex
-XX¥ ∂
+VV¥ ∂
 .
-XX∂ ∑
+VV∂ ∑
 Message
-XX∑ æ
+VV∑ æ
 }
-XXæ ø
+VVæ ø
 "
-XXø ¿
+VVø ¿
 )
-XX¿ ¡
+VV¿ ¡
 ;
-XX¡ ¬
-spanYY 
-.YY 
-LogYY 
-(YY 
-$"YY 0
-$Operation failed into [Controller]: YY C
-{YYC D
-RoutesYYD J
-.YYJ K
-LocationYYK S
-.YYS T
-LocationControllerYYT f
-}YYf g
- \n  [Endpoint]: YYg x
-{YYx y
-RoutesYYy 
-.	YY Ä
+VV¡ ¬
+spanWW 
+.WW 
+LogWW 
+(WW 
+$"WW 0
+$Operation failed into [Controller]: WW C
+{WWC D
+RoutesWWD J
+.WWJ K
+LocationWWK S
+.WWS T
+LocationControllerWWT f
+}WWf g
+ \n  [Endpoint]: WWg x
+{WWx y
+RoutesWWy 
+.	WW Ä
 Location
-YYÄ à
+WWÄ à
 .
-YYà â
+WWà â
 Get_All_Locations
-YYâ ö
+WWâ ö
 }
-YYö õ
+WWö õ
  with message: 
-YYõ ™
+WWõ ™
 {
-YY™ ´
+WW™ ´
 ex
-YY´ ≠
+WW´ ≠
 .
-YY≠ Æ
+WW≠ Æ
 Message
-YYÆ µ
+WWÆ µ
 }
-YYµ ∂
+WWµ ∂
 "
-YY∂ ∑
+WW∂ ∑
 )
-YY∑ ∏
+WW∑ ∏
 ;
-YY∏ π
-returnZZ 
+WW∏ π
+returnXX 
 
-StatusCodeZZ %
-(ZZ% &
-StatusCodesZZ& 1
-.ZZ1 2(
-Status500InternalServerErrorZZ2 N
-)ZZN O
-;ZZO P
-}[[ 
-}]] 
-}^^ 	
+StatusCodeXX %
+(XX% &
+StatusCodesXX& 1
+.XX1 2(
+Status500InternalServerErrorXX2 N
+)XXN O
+;XXO P
+}YY 
+}[[ 
+}\\ 	
+[ff 	 
+ProducesResponseTypeff	 
+(ff 
+$numff !
+)ff! "
+]ff" #
+[gg 	 
+ProducesResponseTypegg	 
+(gg 
+$numgg !
+)gg! "
+]gg" #
 [hh 	 
 ProducesResponseTypehh	 
 (hh 
 $numhh !
 )hh! "
 ]hh" #
-[ii 	 
-ProducesResponseTypeii	 
-(ii 
-$numii !
-)ii! "
-]ii" #
-[jj 	 
-ProducesResponseTypejj	 
-(jj 
-$numjj !
-)jj! "
-]jj" #
-[kk 	
-Produceskk	 
-(kk 
-$strkk $
-,kk$ %
-Typekk& *
-=kk+ ,
-typeofkk- 3
-(kk3 4!
-ProvinceLocationModelkk4 I
-)kkI J
-)kkJ K
-]kkK L
-[ll 	
-HttpGetll	 
-(ll 
-Routesll 
-.ll 
-Locationll  
-.ll  !#
-Get_Coordinates_By_Namell! 8
-)ll8 9
-]ll9 :
-[mm 	
-	Authorizemm	 
-(mm 
-)mm 
-]mm 
-publicoo 
-asyncoo 
-Taskoo 
-<oo 
-ActionResultoo &
-<oo& '!
-ProvinceLocationModeloo' <
->oo< =
->oo= >%
-GetCoordinatesByNameAsyncoo? X
-(ooX Y
-[ooY Z
-	FromQueryooZ c
-]ooc d%
-GetCoordinatesByNameQueryooe ~
-request	oo Ü
+[ii 	
+Producesii	 
+(ii 
+$strii $
+,ii$ %
+Typeii& *
+=ii+ ,
+typeofii- 3
+(ii3 4!
+ProvinceLocationModelii4 I
+)iiI J
+)iiJ K
+]iiK L
+[jj 	
+HttpGetjj	 
+(jj 
+Routesjj 
+.jj 
+Locationjj  
+.jj  !#
+Get_Coordinates_By_Namejj! 8
+)jj8 9
+]jj9 :
+[kk 	
+	Authorizekk	 
+(kk 
+)kk 
+]kk 
+publicmm 
+asyncmm 
+Taskmm 
+<mm 
+ActionResultmm &
+<mm& '!
+ProvinceLocationModelmm' <
+>mm< =
+>mm= >%
+GetCoordinatesByNameAsyncmm? X
+(mmX Y
+[mmY Z
+	FromQuerymmZ c
+]mmc d%
+GetCoordinatesByNameQuerymme ~
+request	mm Ü
 )
-ooÜ á
-{pp 	
-varqq 
-watchqq 
-=qq 
-newqq 
-	Stopwatchqq %
-(qq% &
-)qq& '
-;qq' (
-watchrr 
-.rr 
-Startrr 
-(rr 
-)rr 
-;rr 
-vartt 
-operationNamett 
-=tt 
-$"tt  "
-GET::tt" '
-{tt' (
-Routestt( .
-.tt. /
-Locationtt/ 7
-.tt7 8
-LocationControllertt8 J
-}ttJ K
-/ttK L
-{ttL M
-RoutesttM S
-.ttS T
-LocationttT \
-.tt\ ]#
-Get_Coordinates_By_Namett] t
-}ttt u
-"ttu v
-;ttv w
-usingvv 
-(vv 
-varvv 
-scopevv 
-=vv 
-_tracervv &
-.vv& '
-	BuildSpanvv' 0
-(vv0 1
-operationNamevv1 >
-)vv> ?
-.vv? @
-StartActivevv@ K
-(vvK L
-finishSpanOnDisposevvL _
-:vv_ `
-truevva e
-)vve f
-)vvf g
-{ww 
-varxx 
-spanxx 
-=xx 
-scopexx  
-.xx  !
-Spanxx! %
-;xx% &
-tryzz 
-{{{ 
-var|| 
-response||  
-=||! "
-await||# (
-	_mediator||) 2
-.||2 3
-Send||3 7
-(||7 8
-request||8 ?
-)||? @
-;||@ A
-await}} 
-LoggingData}} %
-(}}% &
-watch}}& +
-,}}+ ,
-span}}- 1
-)}}1 2
-;}}2 3
-return~~ 
-Ok~~ 
-(~~ 
-response~~ &
-)~~& '
-;~~' (
-} 
-catch
-ÄÄ 
-(
-ÄÄ 
-	Exception
-ÄÄ  
-ex
-ÄÄ! #
-)
-ÄÄ# $
-{
-ÅÅ 
+mmÜ á
+{nn 	
+varoo 
+watchoo 
+=oo 
+newoo 
+	Stopwatchoo %
+(oo% &
+)oo& '
+;oo' (
+watchpp 
+.pp 
+Startpp 
+(pp 
+)pp 
+;pp 
+varrr 
+operationNamerr 
+=rr 
+$"rr  "
+GET::rr" '
+{rr' (
+Routesrr( .
+.rr. /
+Locationrr/ 7
+.rr7 8
+LocationControllerrr8 J
+}rrJ K
+/rrK L
+{rrL M
+RoutesrrM S
+.rrS T
+LocationrrT \
+.rr\ ]#
+Get_Coordinates_By_Namerr] t
+}rrt u
+"rru v
+;rrv w
+usingtt 
+(tt 
+vartt 
+scopett 
+=tt 
+_tracertt &
+.tt& '
+	BuildSpantt' 0
+(tt0 1
+operationNamett1 >
+)tt> ?
+.tt? @
+StartActivett@ K
+(ttK L
+finishSpanOnDisposettL _
+:tt_ `
+truetta e
+)tte f
+)ttf g
+{uu 
+varvv 
+spanvv 
+=vv 
+scopevv  
+.vv  !
+Spanvv! %
+;vv% &
+tryxx 
+{yy 
+varzz 
+responsezz  
+=zz! "
+awaitzz# (
+	_mediatorzz) 2
+.zz2 3
+Sendzz3 7
+(zz7 8
+requestzz8 ?
+)zz? @
+;zz@ A
+await{{ 
+LoggingData{{ %
+({{% &
+watch{{& +
+,{{+ ,
+span{{- 1
+){{1 2
+;{{2 3
+return|| 
+Ok|| 
+(|| 
+response|| &
+)||& '
+;||' (
+}}} 
+catch~~ 
+(~~ 
+	Exception~~  
+ex~~! #
+)~~# $
+{ 
 _logger
-ÇÇ 
+ÄÄ 
 .
-ÇÇ 
+ÄÄ 
 Error
-ÇÇ !
+ÄÄ !
 (
-ÇÇ! "
+ÄÄ! "
 ex
-ÇÇ" $
+ÄÄ" $
 ,
-ÇÇ$ %
+ÄÄ$ %
 $"
-ÇÇ& (2
+ÄÄ& (2
 $Operation failed into [Controller]: 
-ÇÇ( L
+ÄÄ( L
 {
-ÇÇL M
+ÄÄL M
 Routes
-ÇÇM S
+ÄÄM S
 .
-ÇÇS T
+ÄÄS T
 Location
-ÇÇT \
+ÄÄT \
 .
-ÇÇ\ ] 
+ÄÄ\ ] 
 LocationController
-ÇÇ] o
+ÄÄ] o
 }
-ÇÇo p 
- \n  [Endpoint]: ÇÇp Å
-{ÇÇÅ Ç
-RoutesÇÇÇ à
-.ÇÇà â
-LocationÇÇâ ë
-.ÇÇë í'
-Get_Coordinates_By_NameÇÇí ©
-}ÇÇ© ™
- with message: ÇÇ™ π
-{ÇÇπ ∫
-exÇÇ∫ º
-.ÇÇº Ω
-MessageÇÇΩ ƒ
-}ÇÇƒ ≈
-"ÇÇ≈ ∆
-)ÇÇ∆ «
-;ÇÇ« »
+ÄÄo p 
+ \n  [Endpoint]: ÄÄp Å
+{ÄÄÅ Ç
+RoutesÄÄÇ à
+.ÄÄà â
+LocationÄÄâ ë
+.ÄÄë í'
+Get_Coordinates_By_NameÄÄí ©
+}ÄÄ© ™
+ with message: ÄÄ™ π
+{ÄÄπ ∫
+exÄÄ∫ º
+.ÄÄº Ω
+MessageÄÄΩ ƒ
+}ÄÄƒ ≈
+"ÄÄ≈ ∆
+)ÄÄ∆ «
+;ÄÄ« »
 span
-ÉÉ 
+ÅÅ 
 .
-ÉÉ 
+ÅÅ 
 Log
-ÉÉ 
+ÅÅ 
 (
-ÉÉ 
+ÅÅ 
 $"
-ÉÉ 2
+ÅÅ 2
 $Operation failed into [Controller]: 
-ÉÉ C
+ÅÅ C
 {
-ÉÉC D
+ÅÅC D
 Routes
-ÉÉD J
+ÅÅD J
 .
-ÉÉJ K
+ÅÅJ K
 Location
-ÉÉK S
+ÅÅK S
 .
-ÉÉS T 
+ÅÅS T 
 LocationController
-ÉÉT f
+ÅÅT f
 }
-ÉÉf g
+ÅÅf g
  \n  [Endpoint]: 
-ÉÉg x
+ÅÅg x
 {
-ÉÉx y
+ÅÅx y
 Routes
-ÉÉy 
-.ÉÉ Ä
-LocationÉÉÄ à
-.ÉÉà â'
-Get_Coordinates_By_NameÉÉâ †
-}ÉÉ† °
- with message: ÉÉ° ∞
-{ÉÉ∞ ±
-exÉÉ± ≥
-.ÉÉ≥ ¥
-MessageÉÉ¥ ª
-}ÉÉª º
-"ÉÉº Ω
-)ÉÉΩ æ
-;ÉÉæ ø
+ÅÅy 
+.ÅÅ Ä
+LocationÅÅÄ à
+.ÅÅà â'
+Get_Coordinates_By_NameÅÅâ †
+}ÅÅ† °
+ with message: ÅÅ° ∞
+{ÅÅ∞ ±
+exÅÅ± ≥
+.ÅÅ≥ ¥
+MessageÅÅ¥ ª
+}ÅÅª º
+"ÅÅº Ω
+)ÅÅΩ æ
+;ÅÅæ ø
 return
-ÑÑ 
+ÇÇ 
 
 StatusCode
-ÑÑ %
+ÇÇ %
 (
-ÑÑ% &
+ÇÇ% &
 StatusCodes
-ÑÑ& 1
+ÇÇ& 1
 .
-ÑÑ1 2*
+ÇÇ1 2*
 Status500InternalServerError
-ÑÑ2 N
+ÇÇ2 N
 )
-ÑÑN O
+ÇÇN O
 ;
-ÑÑO P
+ÇÇO P
 }
-ÖÖ 
+ÉÉ 
 }
-ÜÜ 
+ÑÑ 
 }
-áá 	
+ÖÖ 	
 }
-ââ 
-}ää ⁄
-MD:\_Repos\location-api\location.api\Extension\ApplicationBuilderExtensions.cs
-	namespace 	
-location
- 
-. 
-api 
-. 
-	Extension  
-{ 
-},, ¨
+áá 
+}àà ¨
 .D:\_Repos\location-api\location.api\Program.cs
 	namespace 	
 location
@@ -2500,8 +2484,156 @@ GetSection0 :
 ; 
 } 	
 } 
-} ﬁ
+} Ö
 MD:\_Repos\location-api\location.api\Registrations\SwaggerRegisterExtension.cs
+	namespace 	
+location
+ 
+. 
+api 
+. 
+Registrations $
+{ 
+public 
+
+static 
+class $
+SwaggerRegisterExtension 0
+{ 
+public		 
+static		 
+IServiceCollection		 (
+
+AddSwagger		) 3
+(		3 4
+this		4 8
+IServiceCollection		9 K
+services		L T
+)		T U
+{
+
+ 	
+services 
+. 
+AddSwaggerGen "
+(" #
+c# $
+=>% '
+{ 
+c 
+. 
+
+SwaggerDoc 
+( 
+$str !
+,! "
+new# &
+OpenApiInfo' 2
+{3 4
+Title5 :
+=; <
+$str= K
+,K L
+VersionM T
+=U V
+$strW [
+}\ ]
+)] ^
+;^ _
+c 
+. !
+AddSecurityDefinition '
+(' (
+$str( 0
+,0 1
+new2 5!
+OpenApiSecurityScheme6 K
+{ 
+Description 
+=  !
+$str" U
+,U V
+Name 
+= 
+$str *
+,* +
+In 
+= 
+ParameterLocation *
+.* +
+Header+ 1
+,1 2
+Scheme 
+= 
+$str %
+,% &
+Type 
+= 
+SecuritySchemeType -
+.- .
+Http. 2
+,2 3
+BearerFormat  
+=! "
+$str# (
+} 
+) 
+; 
+c 
+. "
+AddSecurityRequirement (
+(( )
+new) ,&
+OpenApiSecurityRequirement- G
+{ 
+{ 
+new !
+OpenApiSecurityScheme 1
+{   
+	Reference!! %
+=!!& '
+new!!( +
+OpenApiReference!!, <
+{!!= >
+Type!!? C
+=!!D E
+ReferenceType!!F S
+.!!S T
+SecurityScheme!!T b
+,!!b c
+Id!!d f
+=!!g h
+$str!!i q
+}!!r s
+}"" 
+,"" 
+new## 
+List##  
+<##  !
+string##! '
+>##' (
+(##( )
+)##) *
+}$$ 
+}%% 
+)%% 
+;%% 
+}&& 
+)&& 
+;&& 
+services'' 
+.'' *
+AddSwaggerGenNewtonsoftSupport'' 3
+(''3 4
+)''4 5
+;''5 6
+return)) 
+services)) 
+;)) 
+}** 	
+}++ 
+},, ∑
+MD:\_Repos\location-api\location.api\Registrations\TracingRegisterExtension.cs
 	namespace 	
 location
  
@@ -2519,214 +2651,59 @@ MD:\_Repos\location-api\location.api\Registrations\SwaggerRegisterExtension.cs
  
 class
 
- $
-SwaggerRegisterExtension
+ %
+TraicingRegisterExtension
 
- 0
+ 1
 { 
 public 
 static 
-IServiceCollection (
-
-AddSwagger) 3
-(3 4
-this4 8
-IServiceCollection9 K
-servicesL T
-)T U
+IServiceCollection (
+AddTraicing) 4
+(4 5
+this5 9
+IServiceCollection: L
+servicesM U
+,U V
+IConfigurationW e
+_configurationf t
+)t u
 { 	
-var 
-xmlFile 
-= 
-$" 
-{ 
-Assembly %
-.% & 
-GetExecutingAssembly& :
-(: ;
-); <
-.< =
-GetName= D
-(D E
-)E F
-.F G
-NameG K
-}K L
-.xmlL P
-"P Q
-;Q R
-var 
-xmlPath 
-= 
-Path 
-. 
-Combine &
-(& '
+var 
+jaegerServiceName !
+=" #
+_configuration$ 2
+.2 3
 
-AppContext' 1
-.1 2
-BaseDirectory2 ?
-,? @
-xmlFileA H
-)H I
-;I J
-services 
-. 
-AddSwaggerGen "
-(" #
-c# $
-=>% '
-{ 
-c 
-. 
+GetSection3 =
+(= >
+$str> `
+)` a
+;a b
+var 
+jaegerAgentHost 
+=  !
+_configuration" 0
+.0 1
 
-SwaggerDoc 
-( 
-$str !
-,! "
-new# &
-OpenApiInfo' 2
-{3 4
-Title5 :
-=; <
-$str= K
-,K L
-VersionM T
-=U V
-$strW [
-}\ ]
-)] ^
-;^ _
-c 
-. 
-IncludeXmlComments $
-($ %
-xmlPath% ,
-), -
-;- .
-c 
-. !
-AddSecurityDefinition '
-(' (
-$str( 0
-,0 1
-new2 5!
-OpenApiSecurityScheme6 K
-{ 
-Description 
-=  !
-$str" U
-,U V
-Name 
-= 
-$str *
-,* +
-In 
-= 
-ParameterLocation *
-.* +
-Header+ 1
-,1 2
-Scheme 
-= 
-$str %
-,% &
-Type 
-= 
-SecuritySchemeType -
-.- .
-Http. 2
-,2 3
-BearerFormat  
-=! "
-$str# (
-} 
-) 
-; 
-c 
-. "
-AddSecurityRequirement (
-(( )
-new) ,&
-OpenApiSecurityRequirement- G
-{   
-{!! 
-new"" !
-OpenApiSecurityScheme"" 1
-{## 
-	Reference$$ %
-=$$& '
-new$$( +
-OpenApiReference$$, <
-{$$= >
-Type$$? C
-=$$D E
-ReferenceType$$F S
-.$$S T
-SecurityScheme$$T b
-,$$b c
-Id$$d f
-=$$g h
-$str$$i q
-}$$r s
-}%% 
-,%% 
-new&& 
-List&&  
-<&&  !
-string&&! '
->&&' (
-(&&( )
-)&&) *
-}'' 
-}(( 
-)(( 
-;(( 
-})) 
-))) 
-;)) 
-services** 
-.** *
-AddSwaggerGenNewtonsoftSupport** 3
-(**3 4
-)**4 5
-;**5 6
-return,, 
-services,, 
-;,, 
-}-- 	
-}.. 
-}// ∑
-MD:\_Repos\location-api\location.api\Registrations\TracingRegisterExtension.cs
-	namespace 	
-location
- 
-. 
-api 
-. 
-Registrations $
-{ 
-public 
-
-static 
-class %
-TraicingRegisterExtension 1
-{ 
-public 
-static 
-IServiceCollection (
-AddTraicing) 4
-(4 5
-this5 9
-IServiceCollection: L
-servicesM U
-,U V
-IConfigurationW e
-_configurationf t
-)t u
-{ 	
+GetSection1 ;
+(; <
+$str< ^
+)^ _
+;_ `
+var 
+jaegerAgentPort 
+=  !
+_configuration" 0
+.0 1
+
+GetSection1 ;
+(; <
+$str< \
+)\ ]
+;] ^
 var 
-jaegerServiceName !
+jaegerSamplerType !
 =" #
 _configuration$ 2
 .2 3
@@ -2735,487 +2712,435 @@ GetSection3 =
 (= >
 $str> `
 )` a
-;a b
-var 
-jaegerAgentHost 
-=  !
-_configuration" 0
-.0 1
-
-GetSection1 ;
-(; <
-$str< ^
-)^ _
-;_ `
-var 
-jaegerAgentPort 
-=  !
-_configuration" 0
-.0 1
-
-GetSection1 ;
-(; <
-$str< \
-)\ ]
-;] ^
-var 
-jaegerSamplerType !
-=" #
-_configuration$ 2
-.2 3
-
-GetSection3 =
-(= >
-$str> `
-)` a
-;a b
-services 
-. 
-AddSingleton !
-<! "
-ITracer" )
->) *
-(* +
-t+ ,
-=>- /
-{ 
+;a b
+services 
+. 
+AddSingleton !
+<! "
+ITracer" )
+>) *
+(* +
+t+ ,
+=>- /
+{ 
+Environment 
+. "
+SetEnvironmentVariable 2
+(2 3
+jaegerServiceName3 D
+.D E
+KeyE H
+,H I
+jaegerServiceNameJ [
+.[ \
+Value\ a
+)a b
+;b c
+Environment 
+. "
+SetEnvironmentVariable 2
+(2 3
+jaegerAgentHost3 B
+.B C
+KeyC F
+,F G
+jaegerAgentHostH W
+.W X
+ValueX ]
+)] ^
+;^ _
+Environment 
+. "
+SetEnvironmentVariable 2
+(2 3
+jaegerAgentPort3 B
+.B C
+KeyC F
+,F G
+jaegerAgentPortH W
+.W X
+ValueX ]
+)] ^
+;^ _
 Environment 
 . "
 SetEnvironmentVariable 2
 (2 3
-jaegerServiceName3 D
+jaegerSamplerType3 D
 .D E
 KeyE H
 ,H I
-jaegerServiceNameJ [
+jaegerSamplerTypeJ [
 .[ \
 Value\ a
 )a b
-;b c
-Environment 
-. "
-SetEnvironmentVariable 2
-(2 3
-jaegerAgentHost3 B
-.B C
-KeyC F
-,F G
-jaegerAgentHostH W
-.W X
-ValueX ]
-)] ^
-;^ _
-Environment 
-. "
-SetEnvironmentVariable 2
-(2 3
-jaegerAgentPort3 B
-.B C
-KeyC F
-,F G
-jaegerAgentPortH W
-.W X
-ValueX ]
-)] ^
-;^ _
-Environment 
-. "
-SetEnvironmentVariable 2
-(2 3
-jaegerSamplerType3 D
-.D E
-KeyE H
-,H I
-jaegerSamplerTypeJ [
-.[ \
-Value\ a
-)a b
-;b c
-var 
-loggerFactory !
-=" #
-new$ '
-LoggerFactory( 5
-(5 6
-)6 7
-;7 8
-var 
-config 
-= 
-Jaeger #
-.# $
-Configuration$ 1
-.1 2
-FromEnv2 9
-(9 :
-loggerFactory: G
-)G H
-;H I
-var   
-tracer   
-=   
-config   #
-.  # $
-	GetTracer  $ -
-(  - .
-)  . /
-;  / 0
-if"" 
-("" 
-!"" 
-GlobalTracer"" !
-.""! "
-IsRegistered""" .
-("". /
-)""/ 0
+;b c
+var 
+loggerFactory !
+=" #
+new$ '
+LoggerFactory( 5
+(5 6
+)6 7
+;7 8
+var 
+config 
+= 
+Jaeger #
+.# $
+Configuration$ 1
+.1 2
+FromEnv2 9
+(9 :
+loggerFactory: G
+)G H
+;H I
+var 
+tracer 
+= 
+config #
+.# $
+	GetTracer$ -
+(- .
+). /
+;/ 0
+if 
+( 
+! 
+GlobalTracer !
+.! "
+IsRegistered" .
+(. /
+)/ 0
+)0 1
+{   
+GlobalTracer""  
+.""  !
+Register""! )
+("") *
+tracer""* 0
 )""0 1
-{## 
-GlobalTracer%%  
-.%%  !
-Register%%! )
-(%%) *
-tracer%%* 0
-)%%0 1
-;%%1 2
-}&& 
-return(( 
-tracer(( 
-;(( 
-})) 
-))) 
-;)) 
-return,, 
-services,, 
-;,, 
-}-- 	
-}.. 
-}// ‡.
-.D:\_Repos\location-api\location.api\Startup.cs
-	namespace 	
-location
- 
-. 
-api 
-{ 
-public 
-
-class 
-Startup 
-{ 
-public 
-Startup 
-( 
-IConfiguration %
-configuration& 3
-)3 4
-{ 	
-Configuration 
-= 
-configuration )
-;) *
-}   	
-public"" 
-IConfiguration"" 
-Configuration"" +
-{"", -
-get"". 1
 ;""1 2
-}""3 4
-public$$ 
-void$$ 
-ConfigureServices$$ %
-($$% &
-IServiceCollection$$& 8
-services$$9 A
-)$$A B
-{%% 	
-services&& 
-.&& 
-	Configure&& 
-<&&  
-KestrelServerOptions&& 3
->&&3 4
-(&&4 5
-opt&&5 8
-=>&&9 ;
-{&&< =
-opt&&> A
-.&&A B
-AllowSynchronousIO&&B T
-=&&U V
-true&&W [
-;&&[ \
-}&&] ^
-)&&^ _
-;&&_ `
+}## 
+return%% 
+tracer%% 
+;%% 
+}&& 
+)&& 
+;&& 
+return)) 
+services)) 
+;)) 
+}** 	
+}++ 
+},, ç,
+.D:\_Repos\location-api\location.api\Startup.cs
+	namespace 	
+location
+ 
+. 
+api 
+{ 
+public 
+
+class 
+Startup 
+{ 
+public 
+Startup 
+( 
+IConfiguration %
+configuration& 3
+)3 4
+{ 	
+Configuration 
+= 
+configuration )
+;) *
+} 	
+public 
+IConfiguration 
+Configuration +
+{, -
+get. 1
+;1 2
+}3 4
+public 
+void 
+ConfigureServices %
+(% &
+IServiceCollection& 8
+services9 A
+)A B
+{ 	
+services   
+.   
+	Configure   
+<    
+KestrelServerOptions   3
+>  3 4
+(  4 5
+opt  5 8
+=>  9 ;
+{  < =
+opt  > A
+.  A B
+AllowSynchronousIO  B T
+=  U V
+true  W [
+;  [ \
+}  ] ^
+)  ^ _
+;  _ `
+services!! 
+.!! 
+
+AddMetrics!! 
+(!!  
+)!!  !
+;!!! "
+services## 
+.## 
+AddHttpClient## "
+(##" #
+Configuration### 0
+)##0 1
+;##1 2
+services%% 
+.%% 
+AddMemoryCache%% #
+(%%# $
+)%%$ %
+;%%% &
 services'' 
-.'' 
+.(( 
+AddControllers(( 
+(((  
+)((  !
+.)) 
+AddNewtonsoftJson)) "
+())" #
+options))# *
+=>))+ -
+options** 
+.** 
+SerializerSettings** .
+.**. /
 
-AddMetrics'' 
-(''  
-)''  !
-;''! "
-services)) 
-.)) 
-AddHttpClient)) "
-())" #
-Configuration))# 0
-)))0 1
-;))1 2
-services++ 
-.++ 
-AddMemoryCache++ #
-(++# $
-)++$ %
-;++% &
+Converters**/ 9
+.**9 :
+Add**: =
+(**= >
+new**> A
+StringEnumConverter**B U
+(**U V
+)**V W
+)**W X
+)**X Y
+.++ 
+AddFluentValidation++ $
+(++$ %
+fv++% '
+=>++( *
+fv+++ -
+.++- .4
+(RegisterValidatorsFromAssemblyContaining++. V
+<++V W%
+UserLoginCommandValidator++W p
+>++p q
+(++q r
+)++r s
+)++s t
+;++t u
 services-- 
-... 
-AddControllers.. 
-(..  
-)..  !
-.// 
-AddNewtonsoftJson// "
-(//" #
-options//# *
-=>//+ -
-options00 
-.00 
-SerializerSettings00 .
-.00. /
+.-- 
+AddDefaultIdentity-- '
+<--' (
+IdentityUser--( 4
+>--4 5
+(--5 6
+)--6 7
+... $
+AddEntityFrameworkStores.. )
+<..) *
+DataContext..* 5
+>..5 6
+(..6 7
+)..7 8
+;..8 9
+services00 
+.00 
+AddDatabase00  
+(00  !
+Configuration00! .
+)00. /
+;00/ 0
+services22 
+.22 
 
-Converters00/ 9
-.009 :
-Add00: =
-(00= >
-new00> A
-StringEnumConverter00B U
-(00U V
-)00V W
-)00W X
-)00X Y
-.11 
-AddFluentValidation11 $
-(11$ %
-fv11% '
-=>11( *
-fv11+ -
-.11- .4
-(RegisterValidatorsFromAssemblyContaining11. V
-<11V W%
-UserLoginCommandValidator11W p
->11p q
-(11q r
-)11r s
-)11s t
-;11t u
-services33 
-.33 
-AddDefaultIdentity33 '
-<33' (
-IdentityUser33( 4
->334 5
-(335 6
-)336 7
-.44 $
-AddEntityFrameworkStores44 )
-<44) *
-DataContext44* 5
->445 6
-(446 7
-)447 8
-;448 9
+AddLogging22 
+(22  
+Configuration22  -
+)22- .
+;22. /
+services44 
+.44 
+
+AddMediatR44 
+(44  
+	AppDomain44  )
+.44) *
+CurrentDomain44* 7
+.447 8
+Load448 <
+(44< =
+$str44= L
+)44L M
+)44M N
+;44N O
 services66 
 .66 
-AddDatabase66  
+AddIdentity66  
 (66  !
 Configuration66! .
 )66. /
 ;66/ 0
 services88 
-.88 
-
-AddLogging88 
-(88  
-Configuration88  -
-)88- .
-;88. /
+.88 
+AddTraicing88  
+(88  !
+Configuration88! .
+)88. /
+;88/ 0
 services:: 
-.;; 
-
-AddMediatR;; 
-(;; 
-	AppDomain;; %
-.;;% &
-CurrentDomain;;& 3
-.;;3 4
-Load;;4 8
-(;;8 9
-$str;;9 H
-);;H I
-);;I J
-.<< 
-AddTransient<< 
-(<< 
-typeof<< $
-(<<$ %
-IPipelineBehavior<<% 6
-<<<6 7
-,<<7 8
-><<8 9
-)<<9 :
-,<<: ;
-typeof<<< B
-(<<B C
-ValidationBehavior<<C U
-<<<U V
-,<<V W
-><<W X
-)<<X Y
-)<<Y Z
-;<<Z [
+.:: 
+	AddScoped:: 
+<:: 
+IIdentityService:: /
+,::/ 0
+IdentityService::1 @
+>::@ A
+(::A B
+)::B C
+;::C D
+services;; 
+.;; 
+AddTransient;; !
+<;;! "
+ITransactionService;;" 5
+,;;5 6
+TransactionService;;7 I
+>;;I J
+(;;J K
+);;K L
+;;;L M
+services<< 
+.<< 
+AddTransient<< !
+<<<! "
+IGetLocationService<<" 5
+,<<5 6
+GetLocationService<<7 I
+><<I J
+(<<J K
+)<<K L
+;<<L M
 services>> 
-.>> 
-AddIdentity>>  
-(>>  !
-Configuration>>! .
-)>>. /
-;>>/ 0
-services@@ 
-.@@ 
-AddTraicing@@  
-(@@  !
-Configuration@@! .
-)@@. /
-;@@/ 0
-servicesBB 
-.BB 
-	AddScopedBB 
-<BB 
-IIdentityServiceBB /
-,BB/ 0
-IdentityServiceBB1 @
->BB@ A
-(BBA B
-)BBB C
-;BBC D
-servicesCC 
-.CC 
-AddTransientCC !
-<CC! "
-ITransactionServiceCC" 5
-,CC5 6
-TransactionServiceCC7 I
->CCI J
-(CCJ K
-)CCK L
-;CCL M
-servicesDD 
-.DD 
-AddTransientDD !
-<DD! "
-IGetLocationServiceDD" 5
-,DD5 6
-GetLocationServiceDD7 I
->DDI J
-(DDJ K
-)DDK L
-;DDL M
-servicesFF 
-.FF 
+.>> 
 
-AddSwaggerFF 
-(FF  
-)FF  !
-;FF! "
-}HH 	
-publicKK 
-voidKK 
-	ConfigureKK 
-(KK 
-IApplicationBuilderKK 1
-appKK2 5
-,KK5 6
-IWebHostEnvironmentKK7 J
-envKKK N
-)KKN O
-{LL 	
-ifMM 
-(MM 
-envMM 
-.MM 
-IsDevelopmentMM !
-(MM! "
-)MM" #
-)MM# $
-{NN 
-appOO 
-.OO %
-UseDeveloperExceptionPageOO -
-(OO- .
-)OO. /
-;OO/ 0
-}PP 
-appRR 
-.RR 
-UseHttpsRedirectionRR #
-(RR# $
-)RR$ %
-;RR% &
-appTT 
-.TT 
+AddSwagger>> 
+(>>  
+)>>  !
+;>>! "
+}@@ 	
+publicCC 
+voidCC 
+	ConfigureCC 
+(CC 
+IApplicationBuilderCC 1
+appCC2 5
+,CC5 6
+IWebHostEnvironmentCC7 J
+envCCK N
+)CCN O
+{DD 	
+ifEE 
+(EE 
+envEE 
+.EE 
+IsDevelopmentEE !
+(EE! "
+)EE" #
+)EE# $
+{FF 
+appGG 
+.GG %
+UseDeveloperExceptionPageGG -
+(GG- .
+)GG. /
+;GG/ 0
+}HH 
+appJJ 
+.JJ 
+UseHttpsRedirectionJJ #
+(JJ# $
+)JJ$ %
+;JJ% &
+appLL 
+.LL 
 
-UseRoutingTT 
-(TT 
-)TT 
-;TT 
+UseRoutingLL 
+(LL 
+)LL 
+;LL 
+appNN 
+.NN 
+UseAuthorizationNN  
+(NN  !
+)NN! "
+;NN" #
+appPP 
+.PP 
+UseEndpointsPP 
+(PP 
+	endpointsPP &
+=>PP' )
+{QQ 
+	endpointsRR 
+.RR 
+MapControllersRR (
+(RR( )
+)RR) *
+;RR* +
+}SS 
+)SS 
+;SS 
+appUU 
+.UU 
+
+UseSwaggerUU 
+(UU 
+)UU 
+;UU 
 appVV 
-.VV 
-UseAuthorizationVV  
-(VV  !
-)VV! "
-;VV" #
-appXX 
-.XX 
-UseEndpointsXX 
-(XX 
-	endpointsXX &
-=>XX' )
-{YY 
-	endpointsZZ 
-.ZZ 
-MapControllersZZ (
-(ZZ( )
-)ZZ) *
-;ZZ* +
-}[[ 
-)[[ 
-;[[ 
-app]] 
-.]] 
-
-UseSwagger]] 
-(]] 
-)]] 
-;]] 
-app^^ 
-.^^ 
-UseSwaggerUI^^ 
-(^^ 
-c^^ 
-=>^^ !
-{__ 
-c`` 
-.`` 
-SwaggerEndpoint`` !
-(``! "
-$str``" <
-,``< =
-$str``> L
-)``L M
-;``M N
-}aa 
-)aa 
-;aa 
-}bb 	
-}dd 
-}ee 
+.VV 
+UseSwaggerUIVV 
+(VV 
+cVV 
+=>VV !
+{WW 
+cXX 
+.XX 
+SwaggerEndpointXX !
+(XX! "
+$strXX" <
+,XX< =
+$strXX> L
+)XXL M
+;XXM N
+}YY 
+)YY 
+;YY 
+}ZZ 	
+}\\ 
+}]] 

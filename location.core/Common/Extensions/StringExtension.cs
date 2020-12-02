@@ -1,5 +1,4 @@
-﻿using location.core.Common.Enums;
-using System;
+﻿using System;
 using System.Globalization;
 using System.Text;
 
@@ -31,7 +30,7 @@ namespace location.core.Common.Extensions
         }
 
         public static bool ToBoolean(this String str)
-            => str.ToLower().Equals(BooleanEnum.True.ToString().ToLower());
+            => str.ToLower().Equals(Enums.Boolean.True.ToString().ToLower());
 
     }
 }

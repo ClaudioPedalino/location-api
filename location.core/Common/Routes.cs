@@ -1,6 +1,6 @@
 ﻿namespace location.core.Common
 {
-    public class Routes
+    public static class Routes
     {
         public const string Root = "api";
         public const string Version = "v1";

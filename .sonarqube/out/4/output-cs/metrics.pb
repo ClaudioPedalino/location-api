@@ -6,15 +6,13 @@ T
  !#%&'()*+-.0146789:;<>?@ABDFGHIJKLNPRSTUVWXYZ[\]^_`abdfghijklmxÇ#%')-468:DFHJNUYZ[\]_adfiK
 <D:\_Repos\location-api\location.api\Auth\IIdentityService.csr		
 H
-7D:\_Repos\location-api\location.api\Auth\JwtSettings.cs 8rå
-ND:\_Repos\location-api\location.api\Controllers\Custom\CustomBaseController.cs 8r&	
- !"#$&'()*Ç	 !"#$&'ñ
+7D:\_Repos\location-api\location.api\Auth\JwtSettings.cs 8rä
+ND:\_Repos\location-api\location.api\Controllers\Custom\CustomBaseController.cs 8r$	
+ !"$%&'(Ç	 !"$%ñ
 ED:\_Repos\location-api\location.api\Controllers\IdentityController.cs 8r0	
- !"$%&')*,-./02356789:;xÇ ')*,.368˚
-ED:\_Repos\location-api\location.api\Controllers\LocationController.cs  8	j3456>bcdefnrx	
- !"$%&'()*+,-./089:;<=?@ABDEFGHIJKLMNOPQRSTUVWXYZ[]^hijklmopqrtvwxz{|}~ÄÅÇÉÑÖÜáâäxÇ+,-./BDEGJLMQRSXYZrtvx|}~ÇÉÑo
-MD:\_Repos\location-api\location.api\Extension\ApplicationBuilderExtensions.csj !$%&'r	
-,`
+ !"$%&')*,-./02356789:;xÇ ')*,.368˜
+ED:\_Repos\location-api\location.api\Controllers\LocationController.cs  8	j1234<`abcdlrt	
+ "#$%&'()*+,-.6789:;=>?@BCDEFGHIJKLMNOPQRSTUVWXY[\fghijkmnoprtuvxyz{|}~ÄÅÇÉÑÖáàxÇ)*+,-@BCEHJKOPQVWXprtvz{|ÄÅÇ`
 .D:\_Repos\location-api\location.api\Program.cs 8r	
 ÇÄ
 JD:\_Repos\location-api\location.api\Registrations\DataRegisterExtension.cs 8r	
@@ -26,9 +24,10 @@ ND:\_Repos\location-api\location.api\Registrations\IdentityRegisterExtension.cs
  8r&	
  !"#$&'()Ç&{
 MD:\_Repos\location-api\location.api\Registrations\LoggingRegisterExtension.cs 8jr	
-Çì
-MD:\_Repos\location-api\location.api\Registrations\SwaggerRegisterExtension.cs	 8r+	
- !"#$%&'()*,-./Ç$*,ñ
-MD:\_Repos\location-api\location.api\Registrations\TracingRegisterExtension.cs 8j$r&	 "#%&(),-./xÇ "%(,´
-.D:\_Repos\location-api\location.api\Startup.cs 8rN	
- "$%&')+-./013468:;<>@BCDFHKLMNOPRTVXYZ[]^_`abdexÇ&')+-/01368:;>@BCDFMORTVXZ]^`
+Çè
+MD:\_Repos\location-api\location.api\Registrations\SwaggerRegisterExtension.cs 8jr%	
+ !"#$%&')*+,Ç	!')ì
+MD:\_Repos\location-api\location.api\Registrations\TracingRegisterExtension.cs 8j!r#	
+ "#%&)*+,xÇ"%)¢
+.D:\_Repos\location-api\location.api\Startup.cs 8rF	
+ !#%'()*+-.02468:;<>@CDEFGHJLNPQRSUVWXYZ\]xÇ !#%')*+-02468:;<>EGJLNPRUVX

@@ -22,10 +22,10 @@ namespace location.api.Registrations
 
         private static bool UsingLocalDb(IConfiguration _configuration)
             => _configuration.GetSection("DataProvider:UsingLocalDb").Value.ToString().ToLower()
-                .Equals(BooleanEnum.True.ToString().ToLower());
+                .Equals(Boolean.True.ToString().ToLower());
 
         private static bool UsingPostgre(IConfiguration _configuration)
             => _configuration.GetSection("DataProvider:UsingPostgre").Value.ToString().ToLower()
-                .Equals(BooleanEnum.True.ToString().ToLower());
+                .Equals(Boolean.True.ToString().ToLower());
     }
 }

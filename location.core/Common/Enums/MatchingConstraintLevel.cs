@@ -1,6 +1,6 @@
 ﻿namespace location.core.Common.Enums
 {
-    public enum MatchingConstraintLevelEnum
+    public enum MatchingConstraintLevel
     {
         Stirct = 0,
         Flexible = 1,

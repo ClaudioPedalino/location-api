@@ -15,8 +15,7 @@ QD:\_Repos\location-api\location.core\Handlers\GetCoordinatesByNameQueryHandler.
 FD:\_Repos\location-api\location.core\Interfaces\IGetLocationService.csutf-8O
 FD:\_Repos\location-api\location.core\Interfaces\ITransactionService.csutf-8A
 8D:\_Repos\location-api\location.core\Models\BaseModel.csutf-8M
-DD:\_Repos\location-api\location.core\Models\ProvinceLocationModel.csutf-8U
-LD:\_Repos\location-api\location.core\PipelineBehaviors\ValidationBehavior.csutf-8L
+DD:\_Repos\location-api\location.core\Models\ProvinceLocationModel.csutf-8L
 CD:\_Repos\location-api\location.core\Queries\GetAllLocationQuery.csutf-8R
 ID:\_Repos\location-api\location.core\Queries\GetCoordinatesByNameQuery.csutf-8L
 CD:\_Repos\location-api\location.core\Services\GetLocationService.csutf-8L

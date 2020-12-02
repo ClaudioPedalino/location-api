@@ -1,6 +1,6 @@
 ﻿namespace location.core.Common.Enums
 {
-    public enum ProvinciasEnum
+    public enum Provincias
     {
         Misiones = 0,
         San_Luis = 1,

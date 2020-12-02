@@ -5,8 +5,7 @@ I
 7D:\_Repos\location-api\location.api\Auth\JwtSettings.csutf-8W
 ND:\_Repos\location-api\location.api\Controllers\Custom\CustomBaseController.csutf-8N
 ED:\_Repos\location-api\location.api\Controllers\IdentityController.csutf-8N
-ED:\_Repos\location-api\location.api\Controllers\LocationController.csutf-8V
-MD:\_Repos\location-api\location.api\Extension\ApplicationBuilderExtensions.csutf-87
+ED:\_Repos\location-api\location.api\Controllers\LocationController.csutf-87
 .D:\_Repos\location-api\location.api\Program.csutf-8S
 JD:\_Repos\location-api\location.api\Registrations\DataRegisterExtension.csutf-8Y
 PD:\_Repos\location-api\location.api\Registrations\HttpClientRegisterExtension.csutf-8W

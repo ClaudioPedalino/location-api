@@ -8,6 +8,6 @@ namespace location.core.Queries
     {
 
         public string ProvinceName { get; set; }
-        //public ProvinciasEnum ProvinceName { get; set; }
+        ///public ProvinciasEnum ProvinceName { get; set; }
     }
 }

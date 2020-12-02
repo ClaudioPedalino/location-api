@@ -76,14 +76,14 @@ namespace location.core.Handlers
                 return null;
             }
 
-            return await GetContent(response, default(Data));
+            return await GetContent(response);
         }
 
-        private static async Task<T> GetContent<T>(HttpResponseMessage response, T defaultValue)
+        private static async Task<Data> GetContent(HttpResponseMessage response)
         {
             string responseBody = await response.Content.ReadAsStringAsync();
 
-            return JsonConvert.DeserializeObject<T>(responseBody);
+            return JsonConvert.DeserializeObject<Data>(responseBody);
         }
 
         private static bool ValidateResponse(HttpClient client, HttpResponseMessage response, ILogger _logger)

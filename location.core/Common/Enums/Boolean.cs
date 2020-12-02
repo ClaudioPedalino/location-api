@@ -1,6 +1,6 @@
 ﻿namespace location.core.Common.Enums
 {
-    public enum BooleanEnum
+    public enum Boolean
     {
         True,
         False

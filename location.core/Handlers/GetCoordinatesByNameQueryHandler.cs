@@ -7,7 +7,6 @@ using MediatR;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15,15 +14,12 @@ namespace location.core.Handlers
 {
     public class GetCoordinatesByNameQueryHandler : IRequestHandler<GetCoordinatesByNameQuery, IEnumerable<ProvinceLocationModel>>
     {
-        private readonly IHttpClientFactory _httpFactory;
         private readonly IGetLocationService _getLocationService;
         private readonly IConfiguration _configuration;
 
-        public GetCoordinatesByNameQueryHandler(IHttpClientFactory httpFactory,
-                                                IGetLocationService getLocationService,
+        public GetCoordinatesByNameQueryHandler(IGetLocationService getLocationService,
                                                 IConfiguration configuration)
         {
-            _httpFactory = httpFactory ?? throw new System.ArgumentNullException(nameof(httpFactory));
             _getLocationService = getLocationService ?? throw new System.ArgumentNullException(nameof(getLocationService));
             _configuration = configuration ?? throw new System.ArgumentNullException(nameof(configuration));
         }
